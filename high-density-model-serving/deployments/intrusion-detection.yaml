@@ -1,0 +1,15 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: intrusion-detection
+  namespace: modelmesh-serving
+  annotations:
+    serving.kserve.io/deploymentMode: ModelMesh
+    serving.kserve.io/secretKey: localMinIO
+spec:
+  predictor:
+    model:
+      modelFormat:
+        name: vae
+        version: "1"
+      storageUri: s3://modelmesh-example-models/custom/vae
