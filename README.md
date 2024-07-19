@@ -1,5 +1,5 @@
     # How-to Guide
-![abc](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/e86947c5-5e25-4b0b-917d-2b78275dad5f)
+![Pipeline Serving](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/e86947c5-5e25-4b0b-917d-2b78275dad5f)
 
 that is Project about Serving one model using Modelmesh Kserve and use technique multiple train you can follow all component to see all pipeline
 The idea of this pipeline will be describe below:
