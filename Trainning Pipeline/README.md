@@ -5,6 +5,7 @@ First, you should be dowload the Data set for trainning job from here:
 - 
 ![Trainning job ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/StructureTrainning.png)
 
+
 ## Build the step
 
 Multi-worker training
@@ -22,22 +23,9 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
     kubectl apply -f tests/nginx.yaml
     kubectl exec -ti nginx bash
     ```
+# Something need to note in here
 
-# References
-
-For more information, please take a look at examples [here](https://github.com/kubeflow/training-operator/tree/master/examples) and [here](https://github.com/kubeflow/examples/tree/master/github_issue_summarization).
-
-Some other useful examples:
-- https://henning.kropponline.de/2017/03/19/distributing-tensorflow/
-- https://www.cs.cornell.edu/courses/cs4787/2019sp/notes/lecture22.pdf
-- https://web.eecs.umich.edu/~mosharaf/Readings/Parameter-Server.pdf
-- https://s3.us.cloud-object-storage.appdomain.cloud/developer/default/series/os-kubeflow-2020/static/kubeflow06.pdf
-- https://xzhu0027.gitbook.io/blog/ml-system/sys-ml-index/parameter-servers
-- http://www.juyang.co/distributed-model-training-ii-parameter-server-and-allreduce/
-
-
-
-Add mlflow for model registry now
+# Add mlflow for model registry now
 
 Finally add jenkins to CICD when update more data the system automatically train
 - Write docker compose to run service Jenkins
@@ -57,3 +45,16 @@ Finally add jenkins to CICD when update more data the system automatically train
 - Choose Manage Jenkins -> System and go to Github part -> In Github API usage rate limiting strategy -> Never check rate limit (NOT RECOMMENDED) and Save 
 - Finnally, go to the Repo in Jenkins -> Configure and Github Credential you choose Github Credential you create in step above then Save 
 - Scan Repository Now to check all connect is ok or not, if not restart Jenkins again 
+
+
+# References
+
+For more information, please take a look at examples [here](https://github.com/kubeflow/training-operator/tree/master/examples) and [here](https://github.com/kubeflow/examples/tree/master/github_issue_summarization).
+
+Some other useful examples:
+- https://henning.kropponline.de/2017/03/19/distributing-tensorflow/
+- https://www.cs.cornell.edu/courses/cs4787/2019sp/notes/lecture22.pdf
+- https://web.eecs.umich.edu/~mosharaf/Readings/Parameter-Server.pdf
+- https://s3.us.cloud-object-storage.appdomain.cloud/developer/default/series/os-kubeflow-2020/static/kubeflow06.pdf
+- https://xzhu0027.gitbook.io/blog/ml-system/sys-ml-index/parameter-servers
+- http://www.juyang.co/distributed-model-training-ii-parameter-server-and-allreduce/
