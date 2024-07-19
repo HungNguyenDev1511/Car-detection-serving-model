@@ -23,7 +23,31 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
     kubectl apply -f tests/nginx.yaml
     kubectl exec -ti nginx bash
     ```
+# Run Docker Compose instead of Kubernetes to run service MLFLOW (option)
+    if want to POC in low resource you can use docker instead
+    ```shell
+    docker compose -f docker-compose.yml up --d --build
+    ```
+
 # Something need to note in here
+- If you  dont have multiple GPU, please use another Strategy for example below
+-
+![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/Strategy.png)
+- You can custom the sciprt and run training job following your custom, if result fail by command: 
+     ```shell
+    kubectl get TFjob
+    ```
+    kidnly check the log of pod error and fix it
+-
+![Result Train ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/result_train_pod.png) 
+
+- In the logic of trainning script, you must define the model and load dataset in strategy scope like this:
+-
+![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/strategy_scope.png)
+
+- You can exec to the pod or container (if use docker instead) you can see the process of training job
+-
+![Train Process](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/train_process.png)
 
 # Add mlflow for model registry now
 
