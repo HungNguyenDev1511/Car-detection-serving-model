@@ -4,4 +4,10 @@ The main idea of this step is you use the streaming tool to create many data you
 - Then, you can access to https://localhost:9021 (9021 is the port of control center kafka)
 - Click on the topic tab - for example you can follow like image below
 -
-![Topic Tab]()
+![Topic Tab](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/Topic_tab.png)
+- Cick on the topic name (in this case image 0) you can see the messege
+-
+![Messege](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/Messenger.png)
+# Note
+- You need to add the connector to kafka so the messege can send to Postgres. I add the example config in connect-timescaledb-sink.json file
+![Connector] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/connector.png)
