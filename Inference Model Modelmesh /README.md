@@ -67,10 +67,14 @@ kubectl get isvc
 You can see that is false
 ![Screenshot from 2024-05-11 17-03-59](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/690161fc-1f85-4932-8d59-9d0e12498bed)
 
-, it should take several minutes for our service to be `READY`. If not, please check logs of the container `mm` in the pod corresponding to `mlserver` as follows
+, it should take several minutes for our service to be `READY`. If not, please check logs of the container `mm` in the pod corresponding to `triton` as follows
 
 kubectl get pods and try to see error 
 ![Screenshot from 2024-05-11 17-05-19](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/2f3abcac-7e4f-45b0-9c21-11efc94bf886)
+
+if our service change tobe `READY`. All may OK
+
+![]
 
 
 ```shell
