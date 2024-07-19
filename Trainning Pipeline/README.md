@@ -50,7 +50,7 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
 ![Train Process](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/train_process.png)
 - The Version of model will be store in MLFLOW like following result below:
 -
-![Result]
+![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/Mlflow%20_modelregistry.png)
 
 # Add mlflow for model registry now
 
