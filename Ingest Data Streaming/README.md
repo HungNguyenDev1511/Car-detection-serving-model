@@ -11,3 +11,5 @@ The main idea of this step is you use the streaming tool to create many data you
 # Note
 - You need to add the connector to kafka so the messege can send to Postgres. I add the example config in connect-timescaledb-sink.json file
 ![Connector] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/connector.png)
+
+Finally, you can check it buy open PostgresSQl and call the data from SQL to train
