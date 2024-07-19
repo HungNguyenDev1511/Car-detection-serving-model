@@ -52,7 +52,8 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
 -
 ![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/Mlflow%20_modelregistry.png)
 
-# Add mlflow for model registry now
+
+# Add mlflow for model registry now (Optionnal section)
 
 Finally add jenkins to CICD when update more data the system automatically train
 - Write docker compose to run service Jenkins
