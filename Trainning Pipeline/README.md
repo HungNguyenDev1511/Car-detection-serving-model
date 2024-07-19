@@ -48,6 +48,9 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
 - You can exec to the pod or container (if use docker instead) you can see the process of training job
 -
 ![Train Process](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/train_process.png)
+- The Version of model will be store in MLFLOW like following result below:
+-
+![Result]
 
 # Add mlflow for model registry now
 
