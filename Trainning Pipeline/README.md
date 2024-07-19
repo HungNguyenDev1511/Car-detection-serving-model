@@ -1,7 +1,7 @@
 # How-to Guide
 First, you should be dowload the Data set for trainning job from here: 
 - https://drive.google.com/drive/folders/12ncEAoWT_kwuPT8YRdFysqgS54XJwre7?usp=drive_link
-the Structure of folder will be like this:
+- the Structure of folder will be like this:
 ![Trainning job ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/StructureTrainning.png)
 
 ## Build the step
