@@ -3,7 +3,7 @@ First, you should download the Data set for the training job from here:
 - https://drive.google.com/drive/folders/12ncEAoWT_kwuPT8YRdFysqgS54XJwre7?usp=drive_link
 - the Structure of folder will be like this:
 - 
-![Trainning job ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/StructureTrainning.png)
+![Trainning job ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/StructureTrainning.png)
 
 
 ## Build the step
@@ -32,25 +32,25 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
 # Something needs to be noted here
 - If you  don't have multiple GPUs, please use another Strategy for example below
 -
-![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/Strategy.png)
+![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/Strategy.png)
 - You can custom the script and run the training job following your custom if result fails by command: 
  ```shell
     kubectl get TFjob
  ```
  kindly check the log of the pod error and fix it
 -
-![Result Train ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/result_train_pod.png) 
+![Result Train ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/result_train_pod.png) 
 
 - In the logic of the training script, you must define the model and load the dataset in strategy scope like this:
 -
-![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/strategy_scope.png)
+![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/strategy_scope.png)
 
 - You can exec to the pod or container (if use docker instead) you can see the process of training job
 -
-![Train Process](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/train_process.png)
+![Train Process](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/train_process.png)
 - The Version of the model will be stored in MLFLOW like the following result below:
 -
-![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/Mlflow%20_modelregistry.png)
+![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/Mlflow%20_modelregistry.png)
 
 
 # Add Mlflow for model registry now (Optional section)
