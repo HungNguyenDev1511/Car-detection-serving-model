@@ -1,4 +1,0 @@
-{
-    "name": "intrusion-detection",
-    "implementation": "model.CustomMLModel"
-}
