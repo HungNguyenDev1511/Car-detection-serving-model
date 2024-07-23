@@ -74,8 +74,8 @@ kubectl get pods and try to see error
 
 if our service change tobe `READY`. All may OK
 
-![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/result-.png)
-![Result Inference Service](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/isvc.png)
+![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/result-.png)
+![Result Inference Service](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/isvc.png)
 
 
 ```shell
