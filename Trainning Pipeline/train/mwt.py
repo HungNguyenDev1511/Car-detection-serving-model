@@ -6,8 +6,8 @@ import sys
 import cv2
 import numpy as np
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
 import tensorflow as tf
 import tqdm
@@ -27,21 +27,30 @@ import mlflow
 import mlflow.tensorflow
 
 # Set the MLflow tracking URI
-mlflow.set_tracking_uri(os.getenv('MLFLOW_TRACKING_URI', 'http://mlflow:5000'))
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI", "http://mlflow:5000"))
+
 
 def train():
     strategy = tf.distribute.MultiWorkerMirroredStrategy()
 
-    image_path = posixpath.join(config.data_dir, config.image_dir, 'train')
-    label_path = posixpath.join(config.data_dir, config.label_dir, 'train')
+    image_path = posixpath.join(config.data_dir, config.image_dir, "train")
+    label_path = posixpath.join(config.data_dir, config.label_dir, "train")
 
-    image_files = [os.path.splitext(file_name)[0] for file_name in os.listdir(image_path) if file_name.lower().endswith('.jpg')]
-    label_files = [os.path.splitext(file_name)[0] for file_name in os.listdir(label_path) if file_name.lower().endswith('.txt')]
+    image_files = [
+        os.path.splitext(file_name)[0]
+        for file_name in os.listdir(image_path)
+        if file_name.lower().endswith(".jpg")
+    ]
+    label_files = [
+        os.path.splitext(file_name)[0]
+        for file_name in os.listdir(label_path)
+        if file_name.lower().endswith(".txt")
+    ]
 
     file_names = list(set(image_files) & set(label_files))
 
     steps = len(file_names) // config.batch_size
-    if os.path.exists(os.path.join(config.data_dir, 'TF')):
+    if os.path.exists(os.path.join(config.data_dir, "TF")):
         dataset = DataLoader().input_fn(file_names)
     else:
         dataset = input_fn(file_names)
@@ -60,6 +69,7 @@ def train():
             return tf.reduce_sum(total_loss) / config.batch_size
 
     with strategy.scope():
+
         def train_step(image, y_true):
             with tf.GradientTape() as tape:
                 y_pred = model(image, training=True)
@@ -70,44 +80,52 @@ def train():
             return loss
 
     with strategy.scope():
+
         @tf.function
         def distributed_train_step(image, y_true):
             per_replica_losses = strategy.run(train_step, args=(image, y_true))
-            return strategy.reduce(tf.distribute.ReduceOp.SUM, per_replica_losses, axis=None)
+            return strategy.reduce(
+                tf.distribute.ReduceOp.SUM, per_replica_losses, axis=None
+            )
 
     def train_fn():
-        if not os.path.exists('weights'):
-            os.makedirs('weights')
-        pb = tf.keras.utils.Progbar(steps, stateful_metrics=['loss'])
-        print(f'[INFO] {len(file_names)} data points')
-        
+        if not os.path.exists("weights"):
+            os.makedirs("weights")
+        pb = tf.keras.utils.Progbar(steps, stateful_metrics=["loss"])
+        print(f"[INFO] {len(file_names)} data points")
+
         # Start MLflow run
         with mlflow.start_run():
             mlflow.log_param("batch_size", config.batch_size)
             mlflow.log_param("num_epochs", config.num_epochs)
-            
+
             for step, inputs in enumerate(dataset):
                 if step % steps == 0:
-                    print(f'Epoch {step // steps + 1}/{config.num_epochs}')
-                    pb = tf.keras.utils.Progbar(steps, stateful_metrics=['loss'])
+                    print(f"Epoch {step // steps + 1}/{config.num_epochs}")
+                    pb = tf.keras.utils.Progbar(steps, stateful_metrics=["loss"])
                 step += 1
                 image, y_true_1, y_true_2, y_true_3 = inputs
                 y_true = (y_true_1, y_true_2, y_true_3)
                 loss = distributed_train_step(image, y_true)
-                pb.add(1, [('loss', loss.numpy())])
-                
+                pb.add(1, [("loss", loss.numpy())])
+
                 # Log loss to MLflow
                 mlflow.log_metric("loss", loss.numpy(), step=step)
-                
+
                 if step % steps == 0:
-                    model.save_weights(os.path.join("weights", f"model_{config.version}.h5"))
+                    model.save_weights(
+                        os.path.join("weights", f"model_{config.version}.h5")
+                    )
                     # Log model checkpoint to MLflow
-                    mlflow.log_artifact(os.path.join("weights", f"model_{config.version}.h5"))
+                    mlflow.log_artifact(
+                        os.path.join("weights", f"model_{config.version}.h5")
+                    )
                 if step // steps == config.num_epochs:
                     mlflow.tensorflow.log_model(model, "model")
                     sys.exit("--- Stop Training ---")
 
     train_fn()
+
 
 # Rest of your script remains unchanged
 def test():
@@ -119,13 +137,21 @@ def test():
         return image
 
     def test_fn():
-        if not os.path.exists('results'):
-            os.makedirs('results')
-        image_path = posixpath.join(config.data_dir, config.image_dir, 'valid')
-        label_path = posixpath.join(config.data_dir, config.label_dir, 'valid')
+        if not os.path.exists("results"):
+            os.makedirs("results")
+        image_path = posixpath.join(config.data_dir, config.image_dir, "valid")
+        label_path = posixpath.join(config.data_dir, config.label_dir, "valid")
 
-        image_files = [os.path.splitext(file_name)[0] for file_name in os.listdir(image_path) if file_name.lower().endswith('.jpg')]
-        label_files = [os.path.splitext(file_name)[0] for file_name in os.listdir(label_path) if file_name.lower().endswith('.txt')]
+        image_files = [
+            os.path.splitext(file_name)[0]
+            for file_name in os.listdir(image_path)
+            if file_name.lower().endswith(".jpg")
+        ]
+        label_files = [
+            os.path.splitext(file_name)[0]
+            for file_name in os.listdir(label_path)
+            if file_name.lower().endswith(".txt")
+        ]
 
         file_names = list(set(image_files) & set(label_files))
 
@@ -133,7 +159,11 @@ def test():
         model.load_weights(f"weights/model_{config.version}.h5", True)
 
         for file_name in tqdm.tqdm(file_names):
-            image = cv2.imread(posixpath.join(config.data_dir, config.image_dir, 'valid', file_name + '.jpg'))
+            image = cv2.imread(
+                posixpath.join(
+                    config.data_dir, config.image_dir, "valid", file_name + ".jpg"
+                )
+            )
             image_np = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
             image_np, scale, dw, dh = util.resize(image_np)
@@ -141,22 +171,27 @@ def test():
 
             boxes, scores, labels = model.predict(image_np[np.newaxis, ...])
 
-            boxes, scores, labels = np.squeeze(boxes, 0), np.squeeze(scores, 0), np.squeeze(labels, 0)
+            boxes, scores, labels = (
+                np.squeeze(boxes, 0),
+                np.squeeze(scores, 0),
+                np.squeeze(labels, 0),
+            )
 
             boxes[:, [0, 2]] = (boxes[:, [0, 2]] - dw) / scale
             boxes[:, [1, 3]] = (boxes[:, [1, 3]] - dh) / scale
             image = draw_bbox(image, boxes)
-            cv2.imwrite(f'results/{file_name}.jpg', image)
+            cv2.imwrite(f"results/{file_name}.jpg", image)
 
     test_fn()
+
 
 def write_tf_record(queue, sentinel):
     def byte_feature(value):
         if not isinstance(value, bytes):
             if not isinstance(value, list):
-                value = value.encode('utf-8')
+                value = value.encode("utf-8")
             else:
-                value = [val.encode('utf-8') for val in value]
+                value = [val.encode("utf-8") for val in value]
         if not isinstance(value, list):
             value = [value]
         return tf.train.Feature(bytes_list=tf.train.BytesList(value=value))
@@ -173,46 +208,56 @@ def write_tf_record(queue, sentinel):
 
         y_true_1, y_true_2, y_true_3 = util.process_box(boxes, label)
 
-        in_image = in_image.astype('float32')
-        y_true_1 = y_true_1.astype('float32')
-        y_true_2 = y_true_2.astype('float32')
-        y_true_3 = y_true_3.astype('float32')
+        in_image = in_image.astype("float32")
+        y_true_1 = y_true_1.astype("float32")
+        y_true_2 = y_true_2.astype("float32")
+        y_true_3 = y_true_3.astype("float32")
 
         in_image = in_image.tobytes()
         y_true_1 = y_true_1.tobytes()
         y_true_2 = y_true_2.tobytes()
         y_true_3 = y_true_3.tobytes()
 
-        features = tf.train.Features(feature={'in_image': byte_feature(in_image),
-                                              'y_true_1': byte_feature(y_true_1),
-                                              'y_true_2': byte_feature(y_true_2),
-                                              'y_true_3': byte_feature(y_true_3)})
+        features = tf.train.Features(
+            feature={
+                "in_image": byte_feature(in_image),
+                "y_true_1": byte_feature(y_true_1),
+                "y_true_2": byte_feature(y_true_2),
+                "y_true_3": byte_feature(y_true_3),
+            }
+        )
         tf_example = tf.train.Example(features=features)
-        opt = tf.io.TFRecordOptions('GZIP')
-        with tf.io.TFRecordWriter(os.path.join(config.data_dir, 'TF', file_name + ".tf"), opt) as writer:
+        opt = tf.io.TFRecordOptions("GZIP")
+        with tf.io.TFRecordWriter(
+            os.path.join(config.data_dir, "TF", file_name + ".tf"), opt
+        ) as writer:
             writer.write(tf_example.SerializeToString())
 
+
 def generate_tf_record():
-    if not os.path.exists(os.path.join(config.data_dir, 'TF')):
-        os.makedirs(os.path.join(config.data_dir, 'TF'))
+    if not os.path.exists(os.path.join(config.data_dir, "TF")):
+        os.makedirs(os.path.join(config.data_dir, "TF"))
     file_names = []
-    with open(os.path.join(config.data_dir, 'train.txt')) as reader:
+    with open(os.path.join(config.data_dir, "train.txt")) as reader:
         for line in reader.readlines():
-            file_names.append(line.rstrip().split(' ')[0])
+            file_names.append(line.rstrip().split(" ")[0])
     sentinel = ("", [])
     queue = multiprocessing.Manager().Queue()
     for file_name in tqdm.tqdm(file_names):
         queue.put(file_name)
     for _ in range(os.cpu_count()):
         queue.put(sentinel)
-    print('[INFO] generating TF record')
+    print("[INFO] generating TF record")
     process_pool = []
     for i in range(os.cpu_count()):
-        process = multiprocessing.Process(target=write_tf_record, args=(queue, sentinel))
+        process = multiprocessing.Process(
+            target=write_tf_record, args=(queue, sentinel)
+        )
         process_pool.append(process)
         process.start()
     for process in process_pool:
         process.join()
+
 
 class AnchorGenerator:
     def __init__(self, num_cluster):
@@ -248,7 +293,9 @@ class AnchorGenerator:
     def generator(self, boxes, k, dist=np.median):
         box_number = boxes.shape[0]
         last_nearest = np.zeros((box_number,))
-        clusters = boxes[np.random.choice(box_number, k, replace=False)]  # init k clusters
+        clusters = boxes[
+            np.random.choice(box_number, k, replace=False)
+        ]  # init k clusters
         while True:
             distances = 1 - self.iou(boxes, clusters)
 
@@ -271,18 +318,24 @@ class AnchorGenerator:
     @staticmethod
     def get_boxes():
         boxes = []
-        file_names = [file_name[:-4] for file_name in os.listdir(posixpath.join(config.data_dir, config.label_dir))]
+        file_names = [
+            file_name[:-4]
+            for file_name in os.listdir(
+                posixpath.join(config.data_dir, config.label_dir)
+            )
+        ]
         for file_name in file_names:
             for box in util.load_label(file_name)[0]:
                 boxes.append([box[2] - box[0], box[3] - box[1]])
         return np.array(boxes)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--anchor', action='store_true')
-    parser.add_argument('--record', action='store_true')
-    parser.add_argument('--train', action='store_true')
-    parser.add_argument('--test', action='store_true')
+    parser.add_argument("--anchor", action="store_true")
+    parser.add_argument("--record", action="store_true")
+    parser.add_argument("--train", action="store_true")
+    parser.add_argument("--test", action="store_true")
 
     args = parser.parse_args()
     if args.anchor:

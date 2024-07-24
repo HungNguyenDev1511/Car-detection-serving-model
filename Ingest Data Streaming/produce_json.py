@@ -72,31 +72,27 @@ def create_streams(servers, schemas_path, image_dir):
             sleep(10)
             pass
 
-    image_files = [os.path.join(image_dir, f) for f in os.listdir(image_dir) if os.path.isfile(os.path.join(image_dir, f))]
+    image_files = [
+        os.path.join(image_dir, f)
+        for f in os.listdir(image_dir)
+        if os.path.isfile(os.path.join(image_dir, f))
+    ]
     image_index = 0
 
     while True:
         image_file = image_files[image_index]
         image_index = (image_index + 1) % len(image_files)
 
-        with open(image_file, 'rb') as img_file:
+        with open(image_file, "rb") as img_file:
             image_data = img_file.read()
 
         record = {
             "schema": {
                 "type": "struct",
                 "fields": [
-                    {
-                        "type": "int64",
-                        "optional": False,
-                        "field": "image_id"
-                    },
-                    {
-                        "type": "bytes",
-                        "optional": False,
-                        "field": "image_data"
-                    },
-                ]
+                    {"type": "int64", "optional": False, "field": "image_id"},
+                    {"type": "bytes", "optional": False, "field": "image_data"},
+                ],
             }
         }
         record["payload"] = {}
@@ -105,7 +101,7 @@ def create_streams(servers, schemas_path, image_dir):
         record["payload"]["image_data"] = image_data
 
         # Get topic name for this image
-        topic_name = f'image_0'
+        topic_name = f"image_0"
 
         # Create a new topic for this image if not exists
         create_topic(admin, topic_name=topic_name)

@@ -6,16 +6,96 @@ import os
 import cv2
 
 CLASSES = [
-    'person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat',
-    'traffic light', 'fire hydrant', 'street sign', 'stop sign', 'parking meter', 'bench', 'bird', 'cat',
-    'dog', 'horse', 'sheep', 'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'hat', 'backpack', 'umbrella',
-    'shoe', 'eye glasses', 'handbag', 'tie', 'suitcase', 'frisbee', 'skis', 'snowboard', 'sports ball',
-    'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'bottle', 'plate',
-    'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana', 'apple', 'sandwich', 'orange', 'broccoli',
-    'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed', 'mirror',
-    'dining table', 'window', 'desk', 'toilet', 'door', 'tv', 'laptop', 'mouse', 'remote', 'keyboard',
-    'cell phone', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'blender', 'book', 'clock', 'vase',
-    'scissors', 'teddy bear', 'hair drier', 'toothbrush'
+    "person",
+    "bicycle",
+    "car",
+    "motorcycle",
+    "airplane",
+    "bus",
+    "train",
+    "truck",
+    "boat",
+    "traffic light",
+    "fire hydrant",
+    "street sign",
+    "stop sign",
+    "parking meter",
+    "bench",
+    "bird",
+    "cat",
+    "dog",
+    "horse",
+    "sheep",
+    "cow",
+    "elephant",
+    "bear",
+    "zebra",
+    "giraffe",
+    "hat",
+    "backpack",
+    "umbrella",
+    "shoe",
+    "eye glasses",
+    "handbag",
+    "tie",
+    "suitcase",
+    "frisbee",
+    "skis",
+    "snowboard",
+    "sports ball",
+    "kite",
+    "baseball bat",
+    "baseball glove",
+    "skateboard",
+    "surfboard",
+    "tennis racket",
+    "bottle",
+    "plate",
+    "wine glass",
+    "cup",
+    "fork",
+    "knife",
+    "spoon",
+    "bowl",
+    "banana",
+    "apple",
+    "sandwich",
+    "orange",
+    "broccoli",
+    "carrot",
+    "hot dog",
+    "pizza",
+    "donut",
+    "cake",
+    "chair",
+    "couch",
+    "potted plant",
+    "bed",
+    "mirror",
+    "dining table",
+    "window",
+    "desk",
+    "toilet",
+    "door",
+    "tv",
+    "laptop",
+    "mouse",
+    "remote",
+    "keyboard",
+    "cell phone",
+    "microwave",
+    "oven",
+    "toaster",
+    "sink",
+    "refrigerator",
+    "blender",
+    "book",
+    "clock",
+    "vase",
+    "scissors",
+    "teddy bear",
+    "hair drier",
+    "toothbrush",
 ]
 
 
@@ -83,8 +163,7 @@ def compute_iou(box, boxes):
     return iou
 
 
-def postprocess(
-        outputs, original_shape, model_shape=(640, 640), threshold=0.8):
+def postprocess(outputs, original_shape, model_shape=(640, 640), threshold=0.8):
     model_height, model_width = model_shape
     original_height, original_width = original_shape[:2]
     outputs = np.array(outputs[0]["data"]).reshape(outputs[0]["shape"])
@@ -100,9 +179,7 @@ def postprocess(
     bboxes = predictions[:, :4]
 
     # Rescale bboxes
-    model_shape = np.array(
-        [model_width, model_height, model_width, model_height]
-    )
+    model_shape = np.array([model_width, model_height, model_width, model_height])
     original_shape = np.array(
         [original_width, original_height, original_width, original_height]
     )
@@ -118,17 +195,21 @@ def postprocess(
 
 def draw_image(image, bboxes, scores, class_ids):
     image_draw = image.copy()
-    for (bbox, score, label) in zip(xywh2xyxy(bboxes), scores, class_ids):
+    for bbox, score, label in zip(xywh2xyxy(bboxes), scores, class_ids):
         bbox = bbox.round().astype(np.int32).tolist()
         cls_id = int(label)
         cls = CLASSES[cls_id]
         color = (0, 255, 0)
         cv2.rectangle(image_draw, tuple(bbox[:2]), tuple(bbox[2:]), color, 2)
-        cv2.putText(image_draw,
-                    f'{cls}:{int(score*100)}', (bbox[0], bbox[1] - 2),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    0.60, [225, 255, 255],
-                    thickness=1)
+        cv2.putText(
+            image_draw,
+            f"{cls}:{int(score*100)}",
+            (bbox[0], bbox[1] - 2),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.60,
+            [225, 255, 255],
+            thickness=1,
+        )
         cv2.imwrite("drawed.jpg", image_draw)
 
 
@@ -147,20 +228,20 @@ def main():
                 "name": "images",
                 "shape": image.shape,
                 "datatype": "FP32",
-                "data": image.flatten().tolist()  # Flatten the image and convert to list
+                "data": image.flatten().tolist(),  # Flatten the image and convert to list
             }
         ]
     }
 
     headers = {
-        'Content-Type': 'application/json',  # Change content type to JSON
+        "Content-Type": "application/json",  # Change content type to JSON
     }
 
     response = requests.post(
-        'http://localhost:8008/v2/models/onnx/infer',
+        "http://localhost:8008/v2/models/onnx/infer",
         headers=headers,
         data=json.dumps(request_data),
-        verify=False
+        verify=False,
     ).json()
 
     result = response["outputs"]
@@ -168,8 +249,9 @@ def main():
     print(bboxes)
     print(scores)
     print(class_ids)
-    draw_image(original_image, bboxes, scores, class_ids)  # Use DRAWED_PATH instead of "drawed.jpg"
-
+    draw_image(
+        original_image, bboxes, scores, class_ids
+    )  # Use DRAWED_PATH instead of "drawed.jpg"
 
 
 if __name__ == "__main__":
