@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment{
-        registry = '666688889/distributed_trainning-train-service'
+        registry = '666688889/distributed_training'
         registryCredential = 'dockerhub'      
     }
 
