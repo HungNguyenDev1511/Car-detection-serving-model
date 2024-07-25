@@ -15,7 +15,7 @@ pipeline {
         stage('Initialize') {
             steps {
                 script {
-                    def dockerHome = tool name: 'myDocker', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
+                    def dockerHome = tool name: 'myDocker'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
                 }
             }
