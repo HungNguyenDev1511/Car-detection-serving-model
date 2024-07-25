@@ -25,9 +25,8 @@ services:
       - MLFLOW_TRACKING_URI=http://mlflow:5000
 
   jenkins:
-    build:
-      context: ./jenkins
-      dockerfile: Dockerfile
+    image: jenkins/jenkins:lts
+    container_name: jenkins 
     restart: unless-stopped
     privileged: true
     user: root
@@ -38,7 +37,7 @@ services:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
 
-  
 
 volumes:
   mlflow-artifacts:
+  jenkins_home: 
