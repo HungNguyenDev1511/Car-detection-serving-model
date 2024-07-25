@@ -30,4 +30,14 @@ pipeline {
                         dockerImage.push()
                         dockerImage.push('latest')
                     }
-              
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying models..'
+                echo 'Running a script to trigger pull and start a docker container'
+            }
+        }
+    }
+}
