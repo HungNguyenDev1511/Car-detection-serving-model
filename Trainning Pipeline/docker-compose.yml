@@ -25,7 +25,7 @@ services:
       - MLFLOW_TRACKING_URI=http://mlflow:5000
 
   jenkins:
-    image: jenkins/jenkins:lts
+    image: fullstackdatascience/jenkins:lts
     container_name: jenkins 
     restart: unless-stopped
     privileged: true
