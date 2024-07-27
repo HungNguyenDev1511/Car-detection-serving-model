@@ -31,25 +31,21 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
 
 # Something needs to be noted here
 - If you  don't have multiple GPUs, please use another Strategy for example below
--
+
 ![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/Strategy.png)
 - You can custom the script and run the training job following your custom if result fails by command: 
  ```shell
     kubectl get TFjob
  ```
  kindly check the log of the pod error and fix it
--
 ![Result Train ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/result_train_pod.png) 
 
 - In the logic of the training script, you must define the model and load the dataset in strategy scope like this:
--
 ![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/strategy_scope.png)
 
 - You can exec to the pod or container (if use docker instead) you can see the process of training job
--
 ![Train Process](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/train_process.png)
 - The Version of the model will be stored in MLFLOW like the following result below:
--
 ![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/Mlflow%20_modelregistry.png)
 
 
