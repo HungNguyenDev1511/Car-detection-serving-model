@@ -1,3 +1,15 @@
+## Table of Contents
+- [How-to Guide](#how-to-guide)
+  - [Table of Contents](#table-of-contents)
+  - [Build the Step](#build-the-step)
+    - [Multi-worker Training](#multi-worker-training)
+  - [Investigate the Models](#investigate-the-models)
+  - [Run Docker Compose instead of Kubernetes to Run the Service MLFLOW (Optional)](#run-docker-compose-instead-of-kubernetes-to-run-the-service-mlflow-optional)
+  - [Something Needs to be Noted Here](#something-needs-to-be-noted-here)
+  - [References](#references)
+
+
+
 # How-to Guide
 First, you should download the Data set for the training job from here: 
 - https://drive.google.com/drive/folders/12ncEAoWT_kwuPT8YRdFysqgS54XJwre7?usp=drive_link
