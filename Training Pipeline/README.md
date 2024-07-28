@@ -6,6 +6,7 @@ The structure of the folder will be like this:
 <div align="center">
   <img src="https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/StructureTrainning.png" alt="Training Job Structure">
 </div>
+
 ## Build the step
 
 Multi-worker training
