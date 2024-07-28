@@ -22,7 +22,7 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
     kubectl apply -f tests/nginx.yaml
     kubectl exec -ti nginx bash
  ```
-# Run Docker Compose instead of Kubernetes to run the service MLFLOW (option)
+# Run Docker Compose instead of Kubernetes to run the service MLFLOW (optional)
  if want to POC in low resources you can use docker instead
  ```shell
  docker compose -f docker-compose.yml up --d --build
