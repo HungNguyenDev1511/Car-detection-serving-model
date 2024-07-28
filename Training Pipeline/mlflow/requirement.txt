@@ -1,4 +1,0 @@
-mlflow
-psycopg2-binary
-pandas
-scikit-learn

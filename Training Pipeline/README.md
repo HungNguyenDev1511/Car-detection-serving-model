@@ -2,7 +2,6 @@
 First, you should download the Data set for the training job from here: 
 - https://drive.google.com/drive/folders/12ncEAoWT_kwuPT8YRdFysqgS54XJwre7?usp=drive_link
 - the Structure of folder will be like this:
-- 
 ![Trainning job ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/StructureTrainning.png)
 
 
@@ -52,24 +51,64 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
 # Add Mlflow for model registry now (Optional section)
 
 Finally, add Jenkins to CICD when updating more data the system automatically train
-- Write docker-compose to run the service Jenkins
-- Write Jenkins Script to train and deploy automatically
 - Install Ngrok: curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
 - Test ngrok install success: ngrok
+![CurlNgrok] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/ngrok.png)
+
+- Get passowrd Jenkins like this:
+![JenkinsPassword] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/password_jenkins.png)
+
 - Open browser localhost:8081 to open Jenkins -> Manage Jenkins -> Plugins and Type : Docker Pipeline and Docker and choose install without start 
-- Now open Terminal Linux and type: Ngrok http 8081 (that expose the request to Jenkins) and copy Forwarding url (something like https://9d76-42-113.ngrok-free.app)
+![JenkinsPlugin] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/instal_docker_jenkins.png)
+- Waiting some minute
+![DowloadPlugin] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/install_docker_success.png)
+
+- Now open Terminal Linux and type: Ngrok http 8081 (that expose the request to Jenkins) and copy Forwarding url (something like https://9d76-42-113.ngrok-free.app) and if and ok you can see something like this
+![NgrokForwardingPort] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/ngrok_forwarding.png)
+
+
 - Open your github repository: In this case is Capstone-Model-Serving-pipeline -> go to Settings of repository -> Webhook -> Add Webhook and paste the Forwarding url in step above to Payload Url and concat "/github-webhook/", Content Type: choose Applycation/json. In the part "Which events would you like to trigger this webhook" choose Push and Pull. Finally, wait the status of webhook to the green mark so that is ok
+
+
+![WebhookGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/webhook_github.png)
+
+- Check connect, if jenkins connect to github success, it will be like this in github UI (have green markdown in webhook)
+
+![Webhookconnect] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/result_connect_jenkins_github.png)
+
 - Back to Jenkins -> choose Dashboard -> New Item and you type your name of the project and choose Multibrach Pipeline and OK
+
 - Add name Project -> Branch Source and Add Source you choose Github 
+
+![UiConnectToRepository] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/add_credential.png)
+
 - In Github Credential -> Choose the Project Name you create above -> and Type the User Name of your Github Account store the Repository (Model-mesh-serving-pipeline blabla ) and in The Password -> Back to your Github Repository -> Developer settings -> Personal access tokens then choose Token classic -> Generate New token classic and choose all option for demo no error and copy the token generated to Jenkins Password and Add
+
+![TokenGithub] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/github_tokens.png)
+
+
 - Copy The Repository we are working to the Repository HTTPS URL 
-- Check all information, if all you see ok, then Save 
-- Choose the Credential and then choose the Scope of our prọect and Add the project credential create a new Credential -> in Username you can type anything you want
-- For the Password: Go to DockerHub (where you store all your docker Images) -> go to Account Setting -> Security -> generate new token and then copy to the Credential of Jenkins the Id you type dockerhub  
+- Check all information, Validate it ,if all you see ok, then Save
+
+![Validate] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/validate_connect_repo.png)
+
+- Choose the Credential and then choose the Scope of our prọect and Add the project credential create a new Credential -> in Username you type the user of DockerHub
+![UiDockerhub] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/add_credential_dockerhub.png)
+
+
+- For the Password: Go to DockerHub (where you store all your docker Images) -> go to Account Setting -> Security -> Generate new token and then copy to the Credential of Jenkins the Id you type dockerhub  
+
+![TokenDockerhub] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/generate_token_docker_hub.png)
+
 - Choose Manage Jenkins -> System and go to Github part -> In Github API usage rate limiting strategy -> Never check rate limit (NOT RECOMMENDED) and Save 
 - Finally, go to the Repo in Jenkins -> Configure and Github Credential you choose the Github Credential you created in step above then Save 
 - Scan Repository Now to check all connections is ok or not, if not restart Jenkins again 
 
+- The result of building on Jenkins will be like this 
+![JenkinsBuild] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/ui_build_jenkins.png)
+
+- As you can see the version of application will be increase
+![Version] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/image/result_push_dockerhub.png)
 
 # References
 

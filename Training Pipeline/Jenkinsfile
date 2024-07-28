@@ -25,11 +25,11 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying models..'
-                echo 'Running a script to trigger pull and start a docker container'
-            }
-        }
+        // stage('Deploy') {
+        //     steps {
+        //         echo 'Deploying models..'
+        //         echo 'Running a script to trigger pull and start a docker container'
+        //     }
+        // }
     }
 }
