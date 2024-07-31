@@ -16,89 +16,54 @@ This project faced several challenges including ensuring data consistency and sc
 
 
 # 📁 Repository Structure
-📦 Car-detection-serving-model
-├─ Inference Model Modelmesh 
-│  ├─ README.md
-│  ├─ car-detection-runtime
-│  │  └─ triton-servingruntime.yaml
-│  ├─ deployments
-│  │  └─ triton-isvc.yaml
-│  ├─ model_repo
-│  │  └─ yolov8n_car
-│  │     ├─ 1
-│  │     │  └─ model.onnx
-│  │     └─ config.pbtxt
-│  ├─ requirements.txt
-│  ├─ triton.yaml
-│  └─ utils
-│     ├─ triton_client.py
-│     └─ upload_model.py
-├─ Ingest Data Streaming
-│  ├─ Dockerfile
-│  ├─ README.md
-│  ├─ docker-compose.yml
-│  ├─ kafka_connector
-│  │  └─ connect-timescaledb-sink.json 
-│  ├─ produce_json.py
-│  └─ run.sh
-├─ README.md
-├─ Training Pipeline
-│  ├─ Jenkinsfile
-│  ├─ README.md
-│  ├─ docker-compose.yml
-│  ├─ mlflow
-│  │  └─ Dockerfile
-│  └─ train
-│     ├─ Dockerfile
-│     ├─ build.sh
-│     ├─ debug.ipynb
-│     ├─ mwt.py
-│     ├─ mwt.yaml
-│     ├─ nets
-│     │  └─ nn.py
-│     ├─ utils
-│     │  ├─ config.py
-│     │  ├─ dataset.py
-│     │  └─ util.py
-│     └─ weights
-│        ├─ model.h5
-│        └─ model_s.h5
-└─ image
-   ├─ Messenger.png
-   ├─ Mlflow _modelregistry.png
-   ├─ PipelineAllcode.png
-   ├─ Strategy.png
-   ├─ StructureTrainning.png
-   ├─ Structure_Data.png
-   ├─ Topic_tab.png
-   ├─ add_credential.png
-   ├─ add_credential_dockerhub.png
-   ├─ add_token_dockerhub.png
-   ├─ bus.jpg
-   ├─ check_request_github_jenkins.png
-   ├─ connector.png
-   ├─ generate_token_docker_hub.png
-   ├─ get_token_github.png
-   ├─ github_tokens.png
-   ├─ instal_docker_jenkins.png
-   ├─ install_docker_success.png
-   ├─ isvc.png
-   ├─ jenkins_container.png
-   ├─ jenkins_portal.png
-   ├─ jenkins_ui.png
-   ├─ ngrok.png
-   ├─ ngrok_forwarding.png
-   ├─ password_jenkins.png
-   ├─ result.png
-   ├─ result_connect_jenkins_github.png
-   ├─ result_push_dockerhub.png
-   ├─ result_train_pod.png
-   ├─ strategy_scope.png
-   ├─ train_process.png
-   ├─ ui_build_jenkins.png
-   ├─ validate_connect_repo.png
-   └─ webhook_github.png
-
+    📦 Car-detection-serving-model
+    ├─ Inference Model Modelmesh
+    │  ├─ README.md
+    │  ├─ car-detection-runtime
+    │  │  └─ triton-servingruntime.yaml
+    │  ├─ deployments
+    │  │  └─ triton-isvc.yaml
+    │  ├─ model_repo
+    │  │  └─ yolov8n_car
+    │  │     ├─ 1
+    │  │     │  └─ model.onnx
+    │  │     └─ config.pbtxt
+    │  ├─ requirements.txt
+    │  ├─ triton.yaml
+    │  └─ utils
+    │     ├─ triton_client.py
+    │     └─ upload_model.py
+    ├─ Ingest Data Streaming
+    │  ├─ Dockerfile
+    │  ├─ README.md
+    │  ├─ docker-compose.yml
+    │  ├─ kafka_connector
+    │  │  └─ connect-timescaledb-sink.json
+    │  ├─ produce_json.py
+    │  └─ run.sh
+    ├─ README.md
+    ├─ Training Pipeline
+    │  ├─ Jenkinsfile
+    │  ├─ README.md
+    │  ├─ docker-compose.yml
+    │  ├─ mlflow
+    │  │  └─ Dockerfile
+    │  └─ train
+    │     ├─ Dockerfile
+    │     ├─ build.sh
+    │     ├─ debug.ipynb
+    │     ├─ mwt.py
+    │     ├─ mwt.yaml
+    │     ├─ nets
+    │     │  └─ nn.py
+    │     ├─ utils
+    │     │  ├─ config.py
+    │     │  ├─ dataset.py
+    │     │  └─ util.py
+    │     └─ weights
+    │        ├─ model.h5
+    │        └─ model_s.h5
+    └─ image
 
 # 🔍 How to Guide
 
