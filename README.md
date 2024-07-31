@@ -7,15 +7,15 @@ Many companies are currently applying AI technology for vehicle recognition in b
 This project faced several challenges including ensuring data consistency and scalability during ingestion, managing resources and synchronization in distributed training, automating CI/CD pipelines, converting and deploying models efficiently, ensuring data privacy and security, optimizing performance, and handling the complexities of debugging and troubleshooting in a distributed system.
 
 # 📕 Table Of Contents
-- 🌟 [System Architecture](#system-architecture)
+- 🌟 [System Architecture](#System-architecture)
 - 📁 [Repository Structure](#repository-structure)
 - 🔍 [How to Guide](#how-to-guide)
 
-# 🌟 System Architecture
+## 🌟 System Architecture
 ![Pipeline Serving](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/e86947c5-5e25-4b0b-917d-2b78275dad5f)
 
 
-# 📁 Repository Structure
+## 📁 Repository Structure
     📦 Car-detection-serving-model
     ├─ Inference Model Modelmesh
     │  ├─ README.md
@@ -65,7 +65,7 @@ This project faced several challenges including ensuring data consistency and sc
     │        └─ model_s.h5
     └─ image
 
-# 🔍 How to Guide
+## 🔍 How to Guide
 
 
 That is a Project about Serving one model using Modelmesh Kserve and using technique multiple training you can follow all components to see all pipelines The idea of this pipeline will be described below:
