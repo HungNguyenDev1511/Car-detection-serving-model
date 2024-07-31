@@ -9,9 +9,9 @@ Many companies are currently applying AI technology for vehicle recognition in b
 This project faced several challenges including ensuring data consistency and scalability during ingestion, managing resources and synchronization in distributed training, automating CI/CD pipelines, converting and deploying models efficiently, ensuring data privacy and security, optimizing performance, and handling the complexities of debugging and troubleshooting in a distributed system.
 
 # 📕 Table Of Contents
-🌟 System Architecture
-📁 Repository Structure
-🔍 How to Guide
+- 🌟 System Architecture
+- 📁 Repository Structure
+- 🔍 How to Guide
 
 # 🌟 System Architecture
 # 📁 Repository Structure
