@@ -8,8 +8,14 @@ Many companies are currently applying AI technology for vehicle recognition in b
 # 🚀 **Challenge**
 This project faced several challenges including ensuring data consistency and scalability during ingestion, managing resources and synchronization in distributed training, automating CI/CD pipelines, converting and deploying models efficiently, ensuring data privacy and security, optimizing performance, and handling the complexities of debugging and troubleshooting in a distributed system.
 
+# 📕 Table Of Contents
+🌟 System Architecture
+📁 Repository Structure
+🔍 How to Guide
 
-
+# 🌟 System Architecture
+# 📁 Repository Structure
+# 🔍 How to Guide
 
 
 That is a Project about Serving one model using Modelmesh Kserve and using technique multiple training you can follow all components to see all pipelines The idea of this pipeline will be described below:
