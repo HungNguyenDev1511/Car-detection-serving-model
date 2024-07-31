@@ -1,7 +1,7 @@
 
 ![Pipeline Serving](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/e86947c5-5e25-4b0b-917d-2b78275dad5f)
 
-### 🚀 Challenge
+### 🚀 **Challenge**
 This project faced several challenges including ensuring data consistency and scalability during ingestion, managing resources and synchronization in distributed training, automating CI/CD pipelines, converting and deploying models efficiently, ensuring data privacy and security, optimizing performance, and handling the complexities of debugging and troubleshooting in a distributed system.
 
 That is a Project about Serving one model using Modelmesh Kserve and using technique multiple training you can follow all components to see all pipelines The idea of this pipeline will be described below:
