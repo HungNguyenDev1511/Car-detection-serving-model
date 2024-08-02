@@ -58,7 +58,7 @@ Run the following command to have a deploy onnx model
 ```shell
 kubectl get p
 kubectl apply -f high-density-model-serving/deployments/triton-isvc.yaml
-kubectl apply -f high-density-model-serving/intrusion-detection-runtime/triton-servingruntime.yaml
+kubectl apply -f high-density-model-serving/car-detection-runtime/triton-servingruntime.yaml
 ```
 
 To see whether our service is ready, run the following command
