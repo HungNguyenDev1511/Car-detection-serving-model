@@ -63,7 +63,7 @@ This project faced several challenges including ensuring data consistency and sc
     │     └─ weights
     │        ├─ model.h5
     │        └─ model_s.h5
-    └─ image
+    └─ images
 
 ## 🔍 How to Guide
 
