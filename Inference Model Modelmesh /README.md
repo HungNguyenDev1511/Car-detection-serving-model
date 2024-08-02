@@ -73,9 +73,9 @@ You can see that is false
 kubectl descrbe pods and try to see error 
 ```shell
 kubectl describe pod modelmesh-serving-triton-2.x-6c4978d6db-5k59z
+```
 ![Error Log Pod Describe](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/error_log_pod.png)
 
-```
 
 if our service change tobe `READY`. All may OK
 
