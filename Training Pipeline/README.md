@@ -16,7 +16,7 @@ First, you should download the Data set for the training job from here:
 The structure of the folder will be like this:
 
 <div align="center">
-  <img src="https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/StructureTraining.png" alt="Training Job Structure">
+  <img src="https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/structure_training.png" alt="Training Job Structure">
 </div>
 
 ## Build the step
@@ -45,7 +45,7 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
 # Something needs to be noted here
 - If you  don't have multiple GPUs, please use another Strategy for example below
 
-![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/Strategy.png)
+![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/strategy.png)
 - You can custom the script and run the training job following your custom if result fails by command: 
  ```shell
     kubectl get TFjob

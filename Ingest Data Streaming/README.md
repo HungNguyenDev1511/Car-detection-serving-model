@@ -4,13 +4,13 @@ The main idea of this step is you use the streaming tool to create many data you
 - https://drive.google.com/drive/folders/12ncEAoWT_kwuPT8YRdFysqgS54XJwre7?usp=drive_link
 - the Structure of folder will be like this:
 - S
-![Structure Data Folder ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/Structure_Data.png)
+![Structure Data Folder ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/structure_data.png)
  
 - You can start the docker-compose file (You can skip this step when you run it successfully in step 1)
 - Then, you can access https://localhost:9021 (9021 is the port of control center Kafka)
 - Click on the topic tab - for example, you can follow like image below
 -
-![Topic Tab](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/Topic_tab.png)
+![Topic Tab](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/topic_tab.png)
 - Click on the topic name (in this case image 0) you can see the message
 -
 ![Messege](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/messenger.png)
