@@ -73,7 +73,7 @@ You can see that is false
 kubectl descrbe pods and try to see error 
 ```shell
 kubectl describe pod modelmesh-serving-triton-2.x-6c4978d6db-5k59z
-![Error Log Pod Describe](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/05ce3bc4-5982-4b25-b9ef-29b54dd564cd)
+![Error Log Pod Describe](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/error_log_pod.png)
 
 ```
 
