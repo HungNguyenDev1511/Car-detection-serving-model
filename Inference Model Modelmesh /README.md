@@ -79,7 +79,7 @@ kubectl describe pod modelmesh-serving-triton-2.x-6c4978d6db-5k59z
 
 if our service change tobe `READY`. All may OK
 
-![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-modelob/refactor/images/result.png)
+![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result.png)
 ![Result Inference Service](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/isvc.png)
 
 
