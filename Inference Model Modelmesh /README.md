@@ -55,7 +55,8 @@ Acess to localhost:9000 to access MINIO upload model to MINIO bucket structure o
 
 
 Run the following command to have a deploy onnx model
-```shellk get p
+```shell
+kubectl get p
 kubectl apply -f high-density-model-serving/deployments/triton-isvc.yaml
 kubectl apply -f high-density-model-serving/intrusion-detection-runtime/triton-servingruntime.yaml
 ```
