@@ -21,13 +21,11 @@ def main():
 
     # Upload './models/mnist-svm.joblib' (or whatever)
     # as object name to our newly created bucket 'modelmesh-models'.
-    object_name = "mnist-svm.joblib"
     client.fput_object(
         bucket_name=bucket_name,
-        object_name=object_name,
-        file_path=f"./models/{object_name}",
+        file_path=f"./model_repo/yolov8n_car/",
     )
-    print(f"'{object_name}' is successfully uploaded to bucket '{bucket_name}'.")
+    print(f"Model and config are successfully uploaded to bucket '{bucket_name}'.")
 
 
 if __name__ == "__main__":
