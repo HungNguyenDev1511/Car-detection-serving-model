@@ -67,7 +67,7 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
 Finally, add Jenkins to CICD when updating more data the system automatically train
 - Install Ngrok: curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
 - Test ngrok install success: ngrok
-![CurlNgrok] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok.png)
+![CurlNgrok](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok.png)
 
 - Get passowrd Jenkins like this:
 ![JenkinsPassword](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/password_jenkins.png)
