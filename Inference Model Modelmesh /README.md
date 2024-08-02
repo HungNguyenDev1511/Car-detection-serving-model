@@ -70,8 +70,12 @@ You can see that is false
 
 , it should take several minutes for our service to be `READY`. If not, please check logs of the container `mm` in the pod corresponding to `triton` as follows
 
-kubectl get pods and try to see error 
-![Screenshot from 2024-05-11 17-05-19](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/2f3abcac-7e4f-45b0-9c21-11efc94bf886)
+kubectl descrbe pods and try to see error 
+```shell
+kubectl describe pod modelmesh-serving-triton-2.x-6c4978d6db-5k59z
+![Error Log Pod Describe](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/05ce3bc4-5982-4b25-b9ef-29b54dd564cd)
+
+```
 
 if our service change tobe `READY`. All may OK
 
@@ -79,11 +83,7 @@ if our service change tobe `READY`. All may OK
 ![Result Inference Service](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/isvc.png)
 
 
-```shell
-kubectl describe pod modelmesh-serving-triton-2.x-6c4978d6db-5k59z
-![Screenshot from 2024-05-11 17-05-55](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/05ce3bc4-5982-4b25-b9ef-29b54dd564cd)
 
-```
 just resolve one by one error first
 
 To make a prediction, do the following steps:
