@@ -16,7 +16,7 @@ First, you should download the Data set for the training job from here:
 The structure of the folder will be like this:
 
 <div align="center">
-  <img src="https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/StructureTrainning.png" alt="Training Job Structure">
+  <img src="https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/StructureTraining.png" alt="Training Job Structure">
 </div>
 
 ## Build the step
