@@ -13,7 +13,7 @@ The main idea of this step is you use the streaming tool to create many data you
 ![Topic Tab](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/Topic_tab.png)
 - Click on the topic name (in this case image 0) you can see the message
 -
-![Messege](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/Messenger.png)
+![Messege](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/messenger.png)
 # Note
 - You need to add the connector to Kafka so the message can be sent to Postgres. I add the example config in the connect-timescaledb-sink.json file
 ![Connector] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/connector.png)
