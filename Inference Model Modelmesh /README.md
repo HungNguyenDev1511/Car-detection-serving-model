@@ -66,7 +66,7 @@ To see whether our service is ready, run the following command
 kubectl get isvc
 ```
 You can see that is false
-![Screenshot from 2024-05-11 17-03-59](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/690161fc-1f85-4932-8d59-9d0e12498bed)
+![Error](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/false_modelmesh_deploy.png)
 
 , it should take several minutes for our service to be `READY`. If not, please check logs of the container `mm` in the pod corresponding to `triton` as follows
 
