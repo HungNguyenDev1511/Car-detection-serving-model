@@ -40,9 +40,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-# Define some constants
-NUM_IMAGE = 1
-
+image_id_counter = 1  
 
 def create_topic(admin, topic_name):
     # Create topic if not exists
@@ -97,8 +95,10 @@ def create_streams(servers, schemas_path, image_dir):
         }
         record["payload"] = {}
 
-        record["payload"]["image_id"] = NUM_IMAGE + 1
+        record["payload"]["image_id"] = image_id_counter 
+        image_id_counter += 1 # tanc chi so image id
         record["payload"]["image_data"] = image_data
+
 
         # Get topic name for this image
         topic_name = f"image_0"

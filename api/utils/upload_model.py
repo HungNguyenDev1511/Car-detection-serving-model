@@ -1,14 +1,15 @@
 from minio import Minio
 from minio.error import S3Error
-
+from dotenv import load_dotenv
+import os
 
 def main():
     # Create a client with the MinIO server playground, its access key
     # and secret key.
     client = Minio(
         "http://localhost:9000",
-        access_key="AKIAIOSFODNN7EXAMPLE",
-        secret_key="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+        access_key=os.getenv("MINIO_ACCESS_KEY"),
+        secret_key=os.getenv("MINIO_SECRET_KEY"),
     )
 
     # Make 'modelmesh-models' bucket if not exist.
