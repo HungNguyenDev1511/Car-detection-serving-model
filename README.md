@@ -73,16 +73,16 @@ This project faced several challenges including ensuring data consistency and sc
 
 - Step 1: Ingest Data 
 ``` shell
- cd Ingest Data Streaming
+ cd streaming
  ```
  Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/tree/refactor/Ingest%20Data%20Streaming) for thís step
 - Step 2: Trainning 
 ``` shell
- cd Training Pipeline
+ cd kubeflow_pipeline
  ```
  Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/tree/refactor/Training%20Pipeline) for thís step
 - Step 3: Serving
 ``` shell
- cd Inference Model Modelmesh
+ cd api
  ```
 Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/tree/refactor/Inference%20Model%20Modelmesh%20) for thís step
