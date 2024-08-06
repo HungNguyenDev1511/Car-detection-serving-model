@@ -4,7 +4,7 @@ import numpy as np
 import wget
 import os
 import cv2
-from classes import CLASSES  # Import danh sách CLASSES từ file classes.py
+from constants import CLASSES  # Import danh sách CLASSES từ file constants.py
 
 
 def preprocess(cv2_image, model_shape=(640, 640)):

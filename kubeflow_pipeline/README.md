@@ -23,9 +23,7 @@ The structure of the folder will be like this:
 
 Multi-worker training
  ``` shell
- cd multi-worker-training
- bash build.sh
- kubectl apply -f mwt.yaml
+ kubectl apply -f deployments/mwt.yaml
  ```
 
 ## Investigate the models

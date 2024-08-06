@@ -1,8 +1,0 @@
-minio==7.1.17
-ultralytics==8.0.202
-onnx==1.15.0
-tritonclient[http]==2.39.0
-onnxsim==0.4.35
-onnxruntime-gpu==1.16.1
-tensorrt==8.6.1
-cuda-python==12.3.0

@@ -91,7 +91,7 @@ services:
       CONNECT_PLUGIN_PATH: '/usr/share/java,/etc/kafka-connect/jars'
 
     volumes:
-      - /home/hungnguyen/Capstone-Project-Model-Serving/kafka/kafka_connector/jars
+      - /Car-detection-serving-model/streaming/kafka_connector/jars
 
   # Confluent control center to manage Kafka
   control-center:
@@ -144,7 +144,7 @@ services:
   kafka_producer:
     build:
       context: .
-      dockerfile: /home/hungnguyen/Capstone-Project-Model-Serving/kafka/Dockerfile
+      dockerfile: /Car-detection-serving-model/streaming/Dockerfile
     depends_on:
       broker:
         condition: service_healthy
@@ -152,4 +152,4 @@ services:
         condition: service_healthy
     container_name: flink-kafka-producer
     volumes:
-      - /home/hungnguyen/Capstone-Project-Model-Serving/kafka/Dataset/images/train:/images
+      - /Car-detection-serving-model/streaming/Dataset/images/train:/images

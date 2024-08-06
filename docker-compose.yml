@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   mlflow:
+    container_name: mlflow 
     build:
       context: ./mlflow
       dockerfile: Dockerfile
@@ -14,6 +15,7 @@ services:
       - MLFLOW_ARTIFACT_ROOT=/mlflow
   
   train-service:
+    container_name: train
     build:
       context: ./train
       dockerfile: Dockerfile
@@ -23,6 +25,7 @@ services:
       - mlflow
     environment:
       - MLFLOW_TRACKING_URI=http://mlflow:5000
+      
 
   jenkins:
     image: fullstackdatascience/jenkins:lts
