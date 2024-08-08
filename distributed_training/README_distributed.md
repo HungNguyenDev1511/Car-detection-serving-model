@@ -75,7 +75,7 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 - Waiting some minute
 ![DowloadPlugin](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/install_docker_success.png)
 
-- Now open Terminal Linux and type: Ngrok http 8081 (that expose the request to Jenkins) and copy Forwarding url (something like https://9d76-42-113.ngrok-free.app) and if and ok you can see something like this
+- Now open Terminal Linux and type: Ngrok http 8081 (that expose the request to Jenkins) and copy Forwarding url (something like https://9d76-42-113.ngrok-free.app) and if ok you can see something like this
 ![NgrokForwardingPort](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok_forwarding.png)
 
 
@@ -83,11 +83,11 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 
 ![WebhookGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/webhook_github.png)
 
-- Check connect, if jenkins connect to github success, it will be like this in github UI (have green markdown in webhook)
+- Check connect, if Jenkins connect to Github success, it will be like this in Github UI (have green markdown in webhook)
 
 ![Webhookconnect](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result_connect_jenkins_github.png)
 
-- Back to Jenkins -> choose `Dashboard` -> `New Item` and you type your name of the project and choose `Multibrach Pipeline` and OK
+- Back to Jenkins -> choose `Dashboard` -> `New Item` and you type your name of the project and choose `Multibranch Pipeline` and OK
 
 - Add name Project -> `Branch Source` and `Add Source` you choose Github 
 
@@ -97,8 +97,8 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 
 ![TokenGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/github_tokens.png)
 
-- Copy The Repository we are working to the Repository HTTPS URL 
-- Check all information, `Validate it` ,if all you see ok, then `Save`
+- Copy The Repository we are working on the Repository HTTPS URL 
+- Check all information, `Validate it`, if all you see is ok, then `Save`
 
 ![Validate](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/validate_connect_repo.png)
 
@@ -106,7 +106,7 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 ![UiDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential_dockerhub.png)
 
 
-- For the Password: Go to DockerHub (where you store all your docker images) -> go to `Account Setting` -> `Security` -> Generate new token and then copy to the Credential of Jenkins the Id you type dockerhub  
+- For the Password: Go to DockerHub (where you store all your docker images) -> go to `Account Setting` -> `Security` -> Generate new token and then copy to the Credential of Jenkins the Id you type "dockerhub"  
 
 ![TokenDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/generate_token_docker_hub.png)
 
