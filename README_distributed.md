@@ -67,10 +67,10 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 - Test ngrok install success: ngrok
 ![CurlNgrok](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok.png)
 
-- Get passowrd Jenkins like this:
+- Get password Jenkins like this:
 ![JenkinsPassword](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/password_jenkins.png)
 
-- Open browser localhost:8081 to open Jenkins -> Manage Jenkins -> Plugins and Type : Docker Pipeline and Docker and choose install without start 
+- Open browser localhost:8081 to open `Jenkins` -> `Manage Jenkins` -> `Plugins and Type` : `Docker Pipeline` and `Docker` and choose install without start 
 ![JenkinsPlugin](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/instal_docker_jenkins.png)
 - Waiting some minute
 ![DowloadPlugin](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/install_docker_success.png)
@@ -87,13 +87,13 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 
 ![Webhookconnect](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result_connect_jenkins_github.png)
 
-- Back to Jenkins -> choose Dashboard -> New Item and you type your name of the project and choose Multibrach Pipeline and OK
+- Back to Jenkins -> choose `Dashboard` -> `New Item` and you type your name of the project and choose `Multibrach Pipeline` and OK
 
 - Add name Project -> Branch Source and Add Source you choose Github 
 
 ![UiConnectToRepository](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential.png)
 
-- In Github Credential -> Choose the Project Name you create above -> and Type the User Name of your Github Account store the Repository (Model-mesh-serving-pipeline blabla ) and in The Password -> Back to your Github Repository -> Developer settings -> Personal access tokens then choose Token classic -> Generate New token classic and choose all option for demo no error and copy the token generated to Jenkins Password and Add
+- In Github Credential -> Choose the Project Name you create above -> and Type the User Name of your Github Account store the Repository (Model-mesh-serving-pipeline blabla ) and in The Password -> Back to your Github Repository -> `Developer settings` -> Personal access tokens then choose `Token classic` -> Generate New token classic and choose all option for demo no error and copy the token generated to Jenkins Password and Add
 
 ![TokenGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/github_tokens.png)
 
@@ -106,7 +106,7 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 ![UiDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential_dockerhub.png)
 
 
-- For the Password: Go to DockerHub (where you store all your docker images) -> go to Account Setting -> Security -> Generate new token and then copy to the Credential of Jenkins the Id you type dockerhub  
+- For the Password: Go to DockerHub (where you store all your docker images) -> go to `Account Setting` -> `Security` -> Generate new token and then copy to the Credential of Jenkins the Id you type dockerhub  
 
 ![TokenDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/generate_token_docker_hub.png)
 
