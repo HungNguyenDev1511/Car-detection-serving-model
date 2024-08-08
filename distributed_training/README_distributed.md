@@ -63,7 +63,17 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
 # Add Mlflow for model registry now (Optional section)
 
 Finally, add Jenkins to the CI/CD pipeline so that the system automatically retrains when more data is updated
-- Install Ngrok: curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
+- Install Ngrok: 
+  ```shell
+    curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc 
+    sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
+    echo "deb https://ngrok-agent.s3.amazonaws.com buster main" 
+    sudo tee /etc/apt/sources.list.d/ngrok.list 
+    sudo apt update  
+    sudo apt install ngrok
+  ```
+
+  
 - Test if the ngrok installation was successful: ngrok
 ![CurlNgrok](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok.png)
 
