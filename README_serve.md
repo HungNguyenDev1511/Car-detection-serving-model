@@ -77,7 +77,7 @@ kubectl describe pod modelmesh-serving-triton-2.x-6c4978d6db-5k59z
 ![Error Log Pod Describe](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/error_log_pod.png)
 
 
-if our service change tobe `READY`. All may OK
+If our service changes to 'READY', everything may be okay.
 
 ![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result.png)
 ![Result Inference Service](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/isvc.png)
