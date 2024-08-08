@@ -102,7 +102,7 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 
 ![Validate](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/validate_connect_repo.png)
 
-- Choose the `Credential` and then choose the `Scope of our prọect` and `Add the project credential create a new Credential` -> in Username you type the user of DockerHub
+- Choose the `Credential` and then choose the `Scope of our project` and `Add the project credential create a new Credential` -> in Username you type the user of DockerHub
 ![UiDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential_dockerhub.png)
 
 
