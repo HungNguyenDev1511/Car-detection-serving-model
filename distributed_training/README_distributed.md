@@ -79,7 +79,7 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 ![NgrokForwardingPort](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok_forwarding.png)
 
 
-- Open your github repository: In this case is Capstone-Model-Serving-pipeline -> go to Settings of repository -> `Webhook` -> `Add Webhook` and paste the Forwarding url in step above to Payload Url and concat "/github-webhook/", Content Type: choose `Applycation/json`. In the part "Which events would you like to trigger this webhook" choose `Push` and `Pull`. Finally, wait for the status of the webhook to the green mark so that it is ok
+- Open your github repository: In this case is Capstone-Model-Serving-pipeline -> go to `Settings` of repository -> `Webhook` -> `Add Webhook` and paste the Forwarding url in step above to Payload Url and concat "/github-webhook/", Content Type: choose `Applycation/json`. In the part "Which events would you like to trigger this webhook" choose `Push` and `Pull`. Finally, wait for the status of the webhook to the green mark so that it is ok
 
 ![WebhookGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/webhook_github.png)
 
@@ -89,20 +89,20 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 
 - Back to Jenkins -> choose `Dashboard` -> `New Item` and you type your name of the project and choose `Multibrach Pipeline` and OK
 
-- Add name Project -> Branch Source and Add Source you choose Github 
+- Add name Project -> `Branch Source` and `Add Source` you choose Github 
 
 ![UiConnectToRepository](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential.png)
 
-- In Github Credential -> Choose the Project Name you create above -> and Type the User Name of your Github Account store the Repository (Model-mesh-serving-pipeline blabla ) and in The Password -> Back to your Github Repository -> `Developer settings` -> Personal access tokens then choose `Token classic` -> Generate New token classic and choose all option for demo no error and copy the token generated to Jenkins Password and Add
+- In `Github Credential` -> Choose the Project Name you create above -> and Type the User Name of your Github Account store the Repository (Model-mesh-serving-pipeline blabla ) and in The Password -> Back to your Github Repository -> `Developer settings` -> Personal access tokens then choose `Token classic` -> Generate New token classic and choose all option for demo no error and copy the token generated to `Jenkins Password` and `Add`
 
 ![TokenGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/github_tokens.png)
 
 - Copy The Repository we are working to the Repository HTTPS URL 
-- Check all information, Validate it ,if all you see ok, then Save
+- Check all information, `Validate it` ,if all you see ok, then `Save`
 
 ![Validate](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/validate_connect_repo.png)
 
-- Choose the Credential and then choose the Scope of our prọect and Add the project credential create a new Credential -> in Username you type the user of DockerHub
+- Choose the `Credential` and then choose the `Scope of our prọect` and `Add the project credential create a new Credential` -> in Username you type the user of DockerHub
 ![UiDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential_dockerhub.png)
 
 
@@ -110,8 +110,8 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 
 ![TokenDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/generate_token_docker_hub.png)
 
-- Choose Manage Jenkins -> System and go to Github part -> In Github API usage rate limiting strategy -> Never check rate limit (NOT RECOMMENDED) and Save 
-- Finally, go to the Repo in Jenkins -> Configure and Github Credential you choose the Github Credential you created in step above then Save 
+- Choose `Manage Jenkins` -> `System and go to Github part` -> In Github API usage rate limiting strategy -> Never check rate limit (NOT RECOMMENDED) and `Save` 
+- Finally, go to the Repo in Jenkins -> `Configure and Github Credential` you choose the Github Credential you created in step above then `Save` 
 - Scan Repository Now to check all connections is ok or not, if not restart Jenkins again 
 
 - The result of building on Jenkins will be like this 
