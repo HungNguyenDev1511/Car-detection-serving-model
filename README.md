@@ -73,7 +73,7 @@ This project faced several challenges including ensuring data consistency and sc
 ``` shell
  cd streaming
  ```
- Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/tree/refactor/Ingest%20Data%20Streaming) for thís step
+ Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/README_streaming.md) for thís step
 - Step 2: Trainning 
 ``` shell
  cd distributed_trainning
