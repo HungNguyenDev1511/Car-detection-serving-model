@@ -73,14 +73,14 @@ This project faced several challenges including ensuring data consistency and sc
 ``` shell
  cd streaming
  ```
- Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/README_streaming.md) for this step
+ Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/streaming/README_streaming.md) for this step
 - Step 2: Trainning 
 ``` shell
- cd distributed_trainning
+ cd distributed_training
  ```
- Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/README_distributed.md) for this step
+ Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/distributed_training/README_distributed.md) for this step
 - Step 3: Serving
 ``` shell
  cd api
  ```
-Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/README_serve.md) for this step
+Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/api/utils/README_serve.md) for this step
