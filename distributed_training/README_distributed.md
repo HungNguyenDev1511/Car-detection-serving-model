@@ -35,59 +35,59 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
     kubectl exec -ti nginx bash
  ```
 # Run Docker Compose instead of Kubernetes to run the service MLFLOW (optional)
- if want to POC in low resources you can use docker instead
+ If you want to do a POC with limited resources, you can use Docker instead.
  ```shell
  docker compose -f docker-compose.yml up --d --build
  ```
 
 # Something needs to be noted here
-- If you  don't have multiple GPUs, please use another Strategy for example below
+- If you don't have multiple GPUs, please use another strategy, such as the one shown below.
 
 ![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/strategy.png)
 - You can custom the script and run the training job following your custom if result fails by command: 
  ```shell
     kubectl get TFjob
  ```
- kindly check the log of the pod error and fix it
+ Please check the pod error log and fix it.
 ![Result Train ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result_train_pod.png) 
 
-- In the logic of the training script, you must define the model and load the dataset in strategy scope like this:
+- In the training script logic, you must define the model and load the dataset within the strategy scope, like this:
 ![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/strategy_scope.png)
 
-- You can exec to the pod or container (if use docker instead) you can see the process of training job
+- You can exec into the pod or container (if using Docker instead) to see the process of the training job
 ![Train Process](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/train_process.png)
-- The Version of the model will be stored in MLFLOW like the following result below:
+- The version of the model will be stored in MLflow, as shown in the result below.:
 ![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/mlflow%20_modelregistry.png)
 
 
 # Add Mlflow for model registry now (Optional section)
 
-Finally, add Jenkins to CICD when updating more data the system automatically train
+Finally, add Jenkins to the CI/CD pipeline so that the system automatically retrains when more data is updated
 - Install Ngrok: curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
-- Test ngrok install success: ngrok
+- Test if the ngrok installation was successful: ngrok
 ![CurlNgrok](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok.png)
 
-- Get password Jenkins like this:
+- Retrieve the Jenkins password like this:
 ![JenkinsPassword](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/password_jenkins.png)
 
-- Open browser localhost:8081 to open `Jenkins` -> `Manage Jenkins` -> `Plugins and Type` : `Docker Pipeline` and `Docker` and choose install without start 
+- Open browser localhost:8081 to open `Jenkins` -> `Manage Jenkins` -> `Plugins and Type` : `Docker Pipeline` and `Docker` and choose `Install without start` 
 ![JenkinsPlugin](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/instal_docker_jenkins.png)
-- Waiting some minute
+- Wait for a few minutes
 ![DowloadPlugin](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/install_docker_success.png)
 
-- Now open Terminal Linux and type: Ngrok http 8081 (that expose the request to Jenkins) and copy Forwarding url (something like https://9d76-42-113.ngrok-free.app) and if ok you can see something like this
+- Now open Terminal Linux and type: Ngrok http 8081 (that expose the request to Jenkins) and copy Forwarding url (something like https://9d76-42-113.ngrok-free.app) and if everything is okay, you should see something like this
 ![NgrokForwardingPort](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok_forwarding.png)
 
 
-- Open your github repository: In this case is Capstone-Model-Serving-pipeline -> go to `Settings` of repository -> `Webhook` -> `Add Webhook` and paste the Forwarding url in step above to Payload Url and concat "/github-webhook/", Content Type: choose `Applycation/json`. In the part "Which events would you like to trigger this webhook" choose `Push` and `Pull`. Finally, wait for the status of the webhook to the green mark so that it is ok
+- Open your Github repository: In this case is Capstone-Model-Serving-pipeline -> go to `Settings` of repository -> `Webhook` -> `Add Webhook` and paste the Forwarding url in step above to Payload Url and concat "/github-webhook/", Content Type: choose `Applycation/json`. In the part "Which events would you like to trigger this webhook" choose `Push` and `Pull`. Finally, wait for the webhook status to show a green mark, indicating that it is working correctly
 
 ![WebhookGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/webhook_github.png)
 
-- Check connect, if Jenkins connect to Github success, it will be like this in Github UI (have green markdown in webhook)
+- Check the connection; if Jenkins is successfully connected to GitHub, it will appear like this in the GitHub UI (with a green mark on the webhook)
 
 ![Webhookconnect](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result_connect_jenkins_github.png)
 
-- Back to Jenkins -> choose `Dashboard` -> `New Item` and you type your name of the project and choose `Multibranch Pipeline` and OK
+- Back to Jenkins -> choose `Dashboard` -> `New Item` then enter the name of your project and choose `Multibranch Pipeline` and `OK`
 
 - Add name Project -> `Branch Source` and `Add Source` you choose Github 
 
@@ -97,8 +97,8 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 
 ![TokenGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/github_tokens.png)
 
-- Copy The Repository we are working on the Repository HTTPS URL 
-- Check all information, `Validate it`, if all you see is ok, then `Save`
+- Copy the repository we are working on using the repository's HTTPS URL
+- Check all information, `Validate it`, and if everything looks correct, then `Save`
 
 ![Validate](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/validate_connect_repo.png)
 
@@ -106,18 +106,18 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 ![UiDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential_dockerhub.png)
 
 
-- For the Password: Go to DockerHub (where you store all your docker images) -> go to `Account Setting` -> `Security` -> Generate new token and then copy to the Credential of Jenkins the Id you type "dockerhub"  
+- For the Password: Go to DockerHub (where you store your Docker images) then navigate to `Account Setting` -> `Security` -> Generate new token. Copy this token and paste it into Jenkins credentials, using 'dockerhub' as the ID. 
 
 ![TokenDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/generate_token_docker_hub.png)
 
 - Choose `Manage Jenkins` -> `System and go to Github part` -> In Github API usage rate limiting strategy -> Never check rate limit (NOT RECOMMENDED) and `Save` 
-- Finally, go to the Repo in Jenkins -> `Configure and Github Credential` you choose the Github Credential you created in step above then `Save` 
-- Scan Repository Now to check all connections is ok or not, if not restart Jenkins again 
+- Finally, go to the repository in Jenkins -> `Configure and Github Credential` Select the Github Credential you created in step above then `Save` 
+- Click `Scan Repository Now` to check if all connections are correct. If they are not, restart Jenkins and try again
 
-- The result of building on Jenkins will be like this 
+- The result of the build on Jenkins will look like this
 ![JenkinsBuild](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ui_build_jenkins.png)
 
-- As you can see the version of application will be increase
+- As you can see, the application version will increase
 ![Version](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result_push_dockerhub.png)
 
 # References
