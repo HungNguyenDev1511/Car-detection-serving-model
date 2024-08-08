@@ -103,7 +103,7 @@ Finally, add Jenkins to the CI/CD pipeline so that the system automatically retr
 
 ![UiConnectToRepository](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential.png)
 
-- In `Github Credential` -> Choose the Project Name you create above -> and Type the User Name of your Github Account store the Repository (Model-mesh-serving-pipeline blabla ) and in The Password -> Back to your Github Repository -> `Developer settings` -> Personal access tokens then choose `Token classic` -> Generate New token classic and choose all option for demo no error and copy the token generated to `Jenkins Password` and `Add`
+- In `Github Credential` -> Choose the Project Name you create above -> and Type the User Name of your Github Account store the Repository (Model-mesh-serving-pipeline blabla ) and in The Password -> Back to your Github Repository -> `Developer settings` -> Personal access tokens then choose `Token classic` -> Generate a New token classic and choose all options for a demo with no error copy the token generated to `Jenkins Password` and `Add`
 
 ![TokenGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/github_tokens.png)
 
