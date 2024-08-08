@@ -12,7 +12,7 @@ This project faced several challenges including ensuring data consistency and sc
 - 🔍 [How to Guide](#how-to-guide)
 
 ## 🌟 System Architecture
-![Pipeline Serving](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/diagram.gif)
+![Pipeline Serving](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/diagram_pipe.gif)
 
 
 ## 📁 Repository Structure
