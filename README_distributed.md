@@ -79,7 +79,7 @@ Finally, add Jenkins to CICD when updating more data the system automatically tr
 ![NgrokForwardingPort](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok_forwarding.png)
 
 
-- Open your github repository: In this case is Capstone-Model-Serving-pipeline -> go to Settings of repository -> Webhook -> Add Webhook and paste the Forwarding url in step above to Payload Url and concat "/github-webhook/", Content Type: choose Applycation/json. In the part "Which events would you like to trigger this webhook" choose Push and Pull. Finally, wait for the status of the webhook to the green mark so that it is ok
+- Open your github repository: In this case is Capstone-Model-Serving-pipeline -> go to Settings of repository -> `Webhook` -> `Add Webhook` and paste the Forwarding url in step above to Payload Url and concat "/github-webhook/", Content Type: choose `Applycation/json`. In the part "Which events would you like to trigger this webhook" choose `Push` and `Pull`. Finally, wait for the status of the webhook to the green mark so that it is ok
 
 ![WebhookGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/webhook_github.png)
 
