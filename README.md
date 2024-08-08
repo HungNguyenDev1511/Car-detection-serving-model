@@ -76,11 +76,11 @@ This project faced several challenges including ensuring data consistency and sc
  Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/tree/refactor/Ingest%20Data%20Streaming) for thís step
 - Step 2: Trainning 
 ``` shell
- cd kubeflow_pipeline
+ cd distributed_trainning
  ```
- Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/tree/refactor/Training%20Pipeline) for thís step
+ Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/README_distributed.md) for thís step
 - Step 3: Serving
 ``` shell
  cd api
  ```
-Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/tree/refactor/Inference%20Model%20Modelmesh%20) for thís step
+Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/README_serve.md) for thís step
