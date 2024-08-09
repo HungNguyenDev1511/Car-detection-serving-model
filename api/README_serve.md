@@ -94,7 +94,7 @@ To make a prediction, do the following steps:
     ```
 2. Test your newly created modelmesh-serving service
     ```shell
-    python utils/quickstart/client.py
+    python api/triton_client.py
     ```
 
     **Note:** Don't forget to replace your cookie ;)
