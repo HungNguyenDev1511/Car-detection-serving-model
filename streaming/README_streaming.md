@@ -2,7 +2,10 @@ The main idea of this step is to use a streaming tool to generate the data you n
 
 - First, download the dataset for streaming from the following link: https://drive.google.com/drive/folders/12ncEAoWT_kwuPT8YRdFysqgS54XJwre7?usp=drive_link
 - the Structure of folder will be like this 
-![Structure Data Folder ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/structure_data.png)
+
+<div align="center">
+  <img src="https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/structure_data.png" alt="Structure Data Folder">
+</div>
  
 - You can start the docker-compose file (You can skip this step when you run it successfully in step 1)
 - Then, you can access https://localhost:9021 (9021 is the port of control center Kafka)
