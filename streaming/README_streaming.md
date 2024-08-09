@@ -1,8 +1,7 @@
 The main idea of this step is to use a streaming tool to generate the data you need. For a proof of concept (POC), you can use tools like RabbitMQ or Kafka locally. In this project, I used Kafka with Flink to send data to PostgreSQL. The key task in this step is to define the Kafka producer service and use it to continuously send data to PostgreSQL. In the Kafka producer, you can specify the message format, bind the data to the message, and choose the topic for sharing the message. You can refer to this guide for development: Chttps://docs.confluent.io/cloud/current/connectors/cc-postgresql-sink.html#step-6-check-the-results-in-postgresql.
 
-- First, download the dataset for streaming from the following link:
-- https://drive.google.com/drive/folders/12ncEAoWT_kwuPT8YRdFysqgS54XJwre7?usp=drive_link
-- the Structure of folder will be like this:
+- First, download the dataset for streaming from the following link: https://drive.google.com/drive/folders/12ncEAoWT_kwuPT8YRdFysqgS54XJwre7?usp=drive_link
+- the Structure of folder will be like this 
 ![Structure Data Folder ](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/structure_data.png)
  
 - You can start the docker-compose file (You can skip this step when you run it successfully in step 1)
