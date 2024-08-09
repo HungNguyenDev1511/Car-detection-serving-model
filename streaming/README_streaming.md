@@ -8,13 +8,13 @@ The main idea of this step is to use a streaming tool to generate the data you n
 </div>
  
 - You can start the docker-compose file (You can skip this step when you run it successfully in step 1)
-- Then, you can access https://localhost:9021 (9021 is the port of control center Kafka)
-- Click on the topic tab - for example, you can follow like image below
+- Then, you can access https://localhost:9021 (9021 is the port for the Kafka Control Center)
+- Click on the 'Topics' tab—for example, you can follow the steps shown in the image below
 ![Topic Tab](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/topic_tab.png)
-- Click on the topic name (in this case image 0) you can see the message
+- Click on the topic name (in this case, image 0) to view the messages
 ![Messege](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/messenger.png)
 # Note
-- You need to add the connector to Kafka so the message can be sent to Postgres. I add the example config in the connect-timescaledb-sink.json file
+- You need to add the connector to Kafka so that the messages can be sent to PostgreSQL. I've provided an example configuration in the connect-timescaledb-sink.json file
 ![Connector] (https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/connector.png)
 
-Finally, you can check it by opening PostgresSQl and calling the data from SQL to train
+Finally, you can verify it by opening PostgreSQL and querying the data with SQL for training
