@@ -4,7 +4,7 @@
 1. [Prerequisites](#prerequisites)
    - [Install kustomize](#install-kustomize)
    - [Install modelmesh-serving](#install-modelmesh-serving)
-2. [Getting Started](#gettingstarted)
+2. [Getting Started](#getting-started)
 
 ---
 
@@ -87,8 +87,6 @@ If our service changes to 'READY', everything may be okay.
 
 ![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result.png)
 ![Result Inference Service](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/isvc.png)
-
-
 
 just resolve one by one error first
 
