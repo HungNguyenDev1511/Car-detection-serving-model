@@ -19,7 +19,7 @@ The structure of the folder will be like this:
   <img src="https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/structure_training.png" alt="Training Job Structure">
 </div>
 
-## Build the step
+## Build the project
 
 Multi-worker training
  ``` shell
