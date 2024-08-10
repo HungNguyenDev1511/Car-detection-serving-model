@@ -9,7 +9,7 @@ The main idea of this step is to use a streaming tool to generate the data you n
  
 - You can start the docker-compose file (You can skip this step when you run it successfully in step 1)
 - Then, you can access https://localhost:9021 (9021 is the port for the Kafka Control Center)
-- Click on the 'Topics' tab—for example, you can follow the steps shown in the image below
+- Click on the `Topics` tab—for example, you can follow the steps shown in the image below
 ![Topic Tab](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/topic_tab.png)
 - Click on the topic name (in this case, image 0) to view the messages
 ![Messege](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/messenger.png)
