@@ -12,8 +12,6 @@ sudo mv kustomize /usr/local/bin/
 
 ### Install modelmesh-serving
 
-Pay attention that `minikf` uses Kubernetes version 1.16, which is not suitable for the latest release of the modelmesh-serving repository, which is `0.11.1`.
-
 Clone the repository. I did this step already for you so you don't have to redo this. I just want to show you what I did.
 ```shell
 RELEASE=release-0.9
