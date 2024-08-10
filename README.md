@@ -83,4 +83,4 @@ This project faced several challenges including ensuring data consistency and sc
 ``` shell
  cd api
  ```
-Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/api/utils/README_serve.md) for this step
+Read [Readme.md](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/api/README_serve.md) for this step
