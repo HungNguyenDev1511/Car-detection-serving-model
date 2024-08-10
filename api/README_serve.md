@@ -1,5 +1,22 @@
 # How-to Guide
 
+## Table of Contents
+1. [Prerequisites](#prerequisites)
+   - [Install kustomize](#install-kustomize)
+   - [Install modelmesh-serving](#install-modelmesh-serving)
+2. [Quickstart](#quickstart)
+   - [Port-forward Minio](#port-forward-minio)
+   - [Obtain Minio Credentials](#obtain-minio-credentials)
+   - [Access Minio and Upload Model](#access-minio-and-upload-model)
+   - [Deploy ONNX Model](#deploy-onnx-model)
+   - [Check Service Readiness](#check-service-readiness)
+3. [Troubleshooting](#troubleshooting)
+4. [Making Predictions](#making-predictions)
+   - [Port-forward modelmesh-serving](#port-forward-modelmesh-serving)
+   - [Test Your Model](#test-your-model)
+
+---
+
 ## Prerequisites
 
 ### Install kustomize
