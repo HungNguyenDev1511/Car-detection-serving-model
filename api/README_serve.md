@@ -4,16 +4,7 @@
 1. [Prerequisites](#prerequisites)
    - [Install kustomize](#install-kustomize)
    - [Install modelmesh-serving](#install-modelmesh-serving)
-2. [Quickstart](#quickstart)
-   - [Port-forward Minio](#port-forward-minio)
-   - [Obtain Minio Credentials](#obtain-minio-credentials)
-   - [Access Minio and Upload Model](#access-minio-and-upload-model)
-   - [Deploy ONNX Model](#deploy-onnx-model)
-   - [Check Service Readiness](#check-service-readiness)
-3. [Troubleshooting](#troubleshooting)
-4. [Making Predictions](#making-predictions)
-   - [Port-forward modelmesh-serving](#port-forward-modelmesh-serving)
-   - [Test Your Model](#test-your-model)
+2. [Getting Started](#gettingstarted)
 
 ---
 
@@ -46,7 +37,7 @@ kubectl create namespace modelmesh-serving
 After several minutes, you should see the following output
 ![modelmesh-serving](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/modelmesh-serving-installation.png)
 
-## Quickstart
+## Getting Started
 
 Port-forward `minio` service so you can access it locally
 ```shell
