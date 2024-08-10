@@ -94,5 +94,3 @@ To make a prediction, do the following steps:
     ```shell
     python api/triton_client.py
     ```
-
-    **Note:** Don't forget to replace your cookie ;)
