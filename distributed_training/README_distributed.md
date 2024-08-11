@@ -1,6 +1,5 @@
 ## Table of Contents
 - [How-to Guide](#how-to-guide)
-  - [Table of Contents](#table-of-contents)
   - [Deploy multi-worker training jobs](#deploy-multi-worker-training-jobs)
     - [Multi-worker Training](#multi-worker-training)
   - [Investigate the Models](#investigate-the-models)
