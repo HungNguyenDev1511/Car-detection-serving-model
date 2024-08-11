@@ -59,7 +59,7 @@ Access localhost:9000 to open MINIO and upload the model to the MINIO bucket. Th
 ![Screenshot from 2024-05-11 17-01-13](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/adc4b65c-a51c-4e64-9a1a-377f680810ed)
 ![Screenshot from 2024-05-11 17-01-19](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/8461cdc0-1fcd-491e-9b24-8d8d9b5bfc58)
 
-Run the following command to upload folder 
+Run the following command to upload the folder, or you can upload it manually if preferred 
 ``` shell
 python api/upload_model_to_minio.py
 ```
