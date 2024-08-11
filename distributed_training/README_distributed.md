@@ -1,7 +1,7 @@
 ## Table of Contents
 - [How-to Guide](#how-to-guide)
   - [Table of Contents](#table-of-contents)
-  - [Build the Step](#build-the-step)
+  - [Deploy multi-worker training jobs](#deploy multi-worker training jobs)
     - [Multi-worker Training](#multi-worker-training)
   - [Investigate the Models](#investigate-the-models)
   - [Run Docker Compose instead of Kubernetes to Run the Service MLFLOW (Optional)](#run-docker-compose-instead-of-kubernetes-to-run-the-service-mlflow-optional)
@@ -19,7 +19,7 @@ The structure of the folder will be like this:
   <img src="https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/structure_training.png" alt="Training Job Structure">
 </div>
 
-## Build the project
+## Deploy multi-worker training jobs
 
 Multi-worker training
  ``` shell
