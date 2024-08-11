@@ -9,7 +9,7 @@
 ---
 
 ## Prerequisites
-
+use GKE version 1.29
 ### Install kustomize
 [Kustomize](https://kubectl.docs.kubernetes.io/) is another tool to install applications on k8s beside Helm. Let's install it first.
 
