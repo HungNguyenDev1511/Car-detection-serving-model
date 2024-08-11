@@ -31,8 +31,14 @@ Update `persistentVolumeClaim` in the file `tests/nginx.yaml` with:
 
  ```shell
     kubectl apply -f tests/nginx.yaml
+ ```
+I have created a pod that shares a volume with other pods used for model training. By using a shared volume, pods can write and read from a common source. This method allows pods to access and share log data through a unified volume
+
+You can access the pod to check and read logs by using the following commands
+ ```shell
     kubectl exec -ti nginx bash
  ```
+
 # Run Docker Compose instead of Kubernetes to run the service MLFLOW (optional)
  If you want to do a POC with limited resources, you can use Docker instead.
  ```shell
