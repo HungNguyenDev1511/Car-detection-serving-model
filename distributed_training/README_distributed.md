@@ -1,7 +1,7 @@
 ## Table of Contents
 - [How-to Guide](#how-to-guide)
   - [Table of Contents](#table-of-contents)
-  - [Deploy multi-worker training jobs](#deploy multi-worker training jobs)
+  - [Deploy multi-worker training jobs](#deploy-multi-worker-training-jobs)
     - [Multi-worker Training](#multi-worker-training)
   - [Investigate the Models](#investigate-the-models)
   - [Run Docker Compose instead of Kubernetes to Run the Service MLFLOW (Optional)](#run-docker-compose-instead-of-kubernetes-to-run-the-service-mlflow-optional)
