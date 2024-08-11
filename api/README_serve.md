@@ -55,7 +55,7 @@ kubectl get po minio-676b8dcf45-nw2zw -o json | jq -r '.spec.containers[0].env[]
 You can see that in my case, `MINIO_ACCESS_KEY` is `AKIAIOSFODNN7EXAMPLE`, and `MINIO_SECRET_KEY` is `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`.
 ![minio-credentials](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/minio-credentials.png).
 
-Acess to localhost:9000 to access MINIO upload model to MINIO bucket structure of storage our ONNX model and config pbtxt will like this. Remember use the model we training in previous step to serving. The format should be onnx format so please convert the weight file to onnx before upload to bucket.
+Access localhost:9000 to open MINIO and upload the model to the MINIO bucket. The structure for storing our ONNX model and the config.pbtxt file should look like this. Remember to use the model we trained in the previous step for serving. The format should be ONNX, so please convert the weight file to ONNX before uploading it to the bucket
 ![Screenshot from 2024-05-11 17-01-13](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/adc4b65c-a51c-4e64-9a1a-377f680810ed)
 ![Screenshot from 2024-05-11 17-01-19](https://github.com/HungNguyenDev1511/Capstone-Project-Model-Serving/assets/69066161/8461cdc0-1fcd-491e-9b24-8d8d9b5bfc58)
 
