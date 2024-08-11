@@ -64,7 +64,7 @@ Run the following command to upload the folder, or you can upload it manually if
 python api/upload_model_to_minio.py
 ```
 
-Run the following command to have a deploy onnx model
+Run the following command to deploy the ONNX model
 ```shell
 kubectl get p
 kubectl apply -f deployments/triton-isvc.yaml
@@ -78,7 +78,7 @@ kubectl get isvc
 You can see that is false
 ![Error](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/false_modelmesh_deploy.png)
 
-, it should take several minutes for our service to be `READY`. If not, please check logs of the container `mm` in the pod corresponding to `triton` as follows
+It should take several minutes for our service to become READY. If it doesn’t, please check the logs of the mm container in the pod corresponding to triton as follows
 
 kubectl descrbe pods and try to see error 
 ```shell
@@ -87,12 +87,12 @@ kubectl describe pod modelmesh-serving-triton-2.x-6c4978d6db-5k59z
 ![Error Log Pod Describe](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/error_log_pod.png)
 
 
-If our service changes to 'READY', everything may be okay.
+If our service changes to 'READY', everything should be okay
 
 ![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result.png)
 ![Result Inference Service](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/isvc.png)
 
-just resolve one by one error first
+Just resolve each error one by one
 
 To make a prediction, do the following steps:
 
