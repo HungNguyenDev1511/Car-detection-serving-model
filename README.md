@@ -129,7 +129,7 @@ For detailed instructions on setting up and running the distributed training, pl
 
 Here's an updated version of the serving pipeline section in your README to match the style of the previous parts you've edited:
 
-### 3. Serving Pipeline:
+### 3. Deployment Pipeline:
 The serving pipeline deploys the trained model for inference, ensuring that it can handle various workloads efficiently. Below are the key aspects of our serving approach:
 
 1. **Scalability**: ModelMesh scales the serving infrastructure dynamically to accommodate varying loads and large volumes of requests, ensuring reliable performance even under heavy demand.
@@ -144,4 +144,4 @@ To get started with the serving pipeline:
 cd api
 ```
 
-For detailed instructions on setting up and managing the serving infrastructure, please refer to our [Serving Pipeline Guide](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/api/README.md).
+For detailed instructions on setting up and managing the serving infrastructure, please refer to our [Deployment Pipeline Guide](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/api/README.md).
