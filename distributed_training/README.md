@@ -1,18 +1,21 @@
 # Distributed Training Pipeline
 
 ## Overview:
+
 This pipeline leverages a combination of Redis for online feature storage, PostgreSQL for offline storage, TensorFlow for distributed training, and MLflow for model tracking and registry. Kubeflow orchestrates the entire process, ensuring a seamless flow from data preparation to model deployment.
 
 ## Table of Contents
-  - [Dataset Preparation](#Dataset-Preparation)
-  - [Deploying Multi-Worker Training Jobs](#deploy-multi-worker-training-jobs)
-  - [Monitoring and Investigating Models](#investigate-the-models)
-  - [Running MLflow with Docker Compose (Optional)](#run-docker-compose-instead-of-kubernetes-to-run-the-service-mlflow-optional)
-  - [Important Considerations](#Important-Considerations)
-  - [Integrating Jenkins for Continuous Integration (Optional)](#Integrating-Jenkins-for-Continuous-Integration-Optional)
-  - [References](#references)
+
+- [Dataset Preparation](#dataset-preparation)
+- [Deploying Multi-Worker Training Jobs](#deploying-multi-worker-training-jobs)
+- [Monitoring and Investigating Models](#monitoring-and-investigating-models)
+- [Running MLflow with Docker Compose:](#running-mlflow-with-docker-compose)
+- [Important Considerations](#important-considerations)
+- [Integrating Jenkins for Continuous Integration](#integrating-jenkins-for-continuous-integration)
+- [References](#references)
 
 ## Dataset Preparation:
+
 Begin by downloading the dataset required for the training job from the following link: [Download Dataset](https://drive.google.com/drive/folders/12ncEAoWT_kwuPT8YRdFysqgS54XJwre7?usp=drive_link). The folder structure should resemble the following:
 
 <div align="center">
@@ -43,7 +46,8 @@ You can access the pod to check and read logs using the following command:
 kubectl exec -ti nginx bash
 ```
 
-## Running MLflow with Docker Compose (Optional)
+## Running MLflow with Docker Compose
+
 For a proof-of-concept (POC) or limited resource environments, you can opt to run the MLflow service using Docker:
 
 ```shell
@@ -51,6 +55,7 @@ docker compose -f docker-compose.yml up --d --build
 ```
 
 ## Important Considerations:
+
 👉 If multiple GPUs are not available, consider using an alternative strategy, as illustrated below:
 
 ![Strategy Scope](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/strategy.png)
@@ -77,34 +82,40 @@ docker compose -f docker-compose.yml up --d --build
 ![Result](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/mlflow%20_modelregistry.png)
 
 
-## Integrating Jenkins for Continuous Integration (Optional)
+## Integrating Jenkins for Continuous Integration
 
 For automated retraining when new data is available, you can integrate Jenkins into your CI/CD pipeline.
+
 1. Install Ngrok: 
-  ```shell
-    curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc 
-    sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
-    echo "deb https://ngrok-agent.s3.amazonaws.com buster main" 
-    sudo tee /etc/apt/sources.list.d/ngrok.list 
-    sudo apt update  
-    sudo apt install ngrok
-  ```
+
+```shell
+  curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc 
+  sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
+  echo "deb https://ngrok-agent.s3.amazonaws.com buster main" 
+  sudo tee /etc/apt/sources.list.d/ngrok.list 
+  sudo apt update  
+  sudo apt install ngrok
+```
 
   
 2. Test Ngrok Installation: Run `ngrok` in the terminal to verify the installation:
+
 ![CurlNgrok](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok.png)
 
 3. Retrieve Jenkins Password: Access Jenkins by retrieving the password as shown below:
+
 ![JenkinsPassword](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/password_jenkins.png)
 
 4. Configure Jenkins:
+
 - Open browser `localhost:8081` to open `Jenkins` -> `Manage Jenkins` -> `Plugins and Type` : `Docker Pipeline` and `Docker` and choose `Install without start` 
   ![JenkinsPlugin](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/instal_docker_jenkins.png)
 - Install necessary plugins like `Docker Pipeline` and `Docker`.
   ![DowloadPlugin](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/install_docker_success.png)
 
-5. Expose Jenkins with Ngrok: Run ngrok http 8081 to expose Jenkins:
+5. Expose Jenkins with Ngrok: 
 
+  - Run `ngrok http 8081` to expose Jenkins:
   ![NgrokForwardingPort](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok_forwarding.png)
 
 6. Set Up GitHub Webhook:
@@ -113,7 +124,7 @@ For automated retraining when new data is available, you can integrate Jenkins i
 
   ![WebhookGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/webhook_github.png)
 
-- Check the connection; if Jenkins is successfully connected to GitHub, it will appear like this in the GitHub UI (with a green mark on the webhook)
+- Check the connection. If Jenkins is successfully connected to GitHub, it will appear like this in the GitHub UI (with a green mark on the webhook)
 
   ![Webhookconnect](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result_connect_jenkins_github.png)
 
