@@ -100,7 +100,7 @@ To get started with the *Data pipeline* component:
 cd streaming
 ```
 
-And read the respective README file: [Data Pipeline Guide](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/streaming/README_streaming.md)
+And read the respective README file: [Data Pipeline Guide](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/streaming/README.md)
 
 ### 2. Training Pipeline:
 Our training pipeline utilizes Kubeflow and TensorFlow for distributed training. Here's an overview of the process:
@@ -124,7 +124,7 @@ To get started with the training pipeline:
 cd distributed_training
 ```
 
-For detailed instructions on setting up and running the distributed training, please refer to our [Distributed Training Guide](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/distributed_training/README_distributed.md).
+For detailed instructions on setting up and running the distributed training, please refer to our [Distributed Training Guide](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/distributed_training/README.md).
 
 
 Here's an updated version of the serving pipeline section in your README to match the style of the previous parts you've edited:
@@ -144,4 +144,4 @@ To get started with the serving pipeline:
 cd api
 ```
 
-For detailed instructions on setting up and managing the serving infrastructure, please refer to our [Serving Pipeline Guide](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/api/README_serve.md).
+For detailed instructions on setting up and managing the serving infrastructure, please refer to our [Serving Pipeline Guide](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/api/README.md).
