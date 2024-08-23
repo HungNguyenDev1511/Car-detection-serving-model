@@ -52,7 +52,7 @@ After a few minutes, you should see the following output:
 
 The following diagram provides an overview of the deployment pipeline, detailing each step from model optimization to deployment and scaling.
 
-[deploymentOverview](images/deployment_pipeline.png)
+![deploymentOverview](images/deployment_pipeline.png)
 
 ### Key Components:
 
