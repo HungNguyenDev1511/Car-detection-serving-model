@@ -105,17 +105,17 @@ For automated retraining when new data is available, you can integrate Jenkins i
 
 5. Expose Jenkins with Ngrok: Run ngrok http 8081 to expose Jenkins:
 
-![NgrokForwardingPort](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok_forwarding.png)
+  ![NgrokForwardingPort](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ngrok_forwarding.png)
 
 6. Set Up GitHub Webhook:
 
 - Open your Github repository: In this case is Capstone-Model-Serving-pipeline -> go to `Settings` of repository -> `Webhook` -> `Add Webhook` and paste the Forwarding url in step above to Payload Url and concat "/github-webhook/", Content Type: choose `Applycation/json`. In the part "Which events would you like to trigger this webhook" choose `Push` and `Pull`. Finally, wait for the webhook status to show a green mark, indicating that it is working correctly
 
-![WebhookGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/webhook_github.png)
+  ![WebhookGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/webhook_github.png)
 
 - Check the connection; if Jenkins is successfully connected to GitHub, it will appear like this in the GitHub UI (with a green mark on the webhook)
 
-![Webhookconnect](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result_connect_jenkins_github.png)
+  ![Webhookconnect](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result_connect_jenkins_github.png)
 
 7. Configure Jenkins Multibranch Pipeline:
 
@@ -123,34 +123,34 @@ For automated retraining when new data is available, you can integrate Jenkins i
 
 - Add name Project -> `Branch Source` and `Add Source` you choose Github 
 
-![UiConnectToRepository](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential.png)
+  ![UiConnectToRepository](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential.png)
 
 - In `Github Credential` -> Choose the Project Name you create above -> and Type the User Name of your Github Account store the Repository (Model-mesh-serving-pipeline blabla ) and in The Password -> Back to your Github Repository -> `Developer settings` -> Personal access tokens then choose `Token classic` -> Generate a New token classic and choose all options for a demo with no error copy the token generated to `Jenkins Password` and `Add`
 
-![TokenGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/github_tokens.png)
+  ![TokenGithub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/github_tokens.png)
 
 - Copy the repository we are working on using the repository's HTTPS URL
 - Check all information, `Validate it`, and if everything looks correct, then `Save`
 
-![Validate](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/validate_connect_repo.png)
+  ![Validate](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/validate_connect_repo.png)
 
 - Choose the `Credential` and then choose the `Scope of our project` and `Add the project credential create a new Credential` -> in Username you type the user of DockerHub
-![UiDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential_dockerhub.png)
+  ![UiDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/add_credential_dockerhub.png)
 
 
 - For the Password: Go to DockerHub (where you store your Docker images) then navigate to `Account Setting` -> `Security` -> Generate new token. Copy this token and paste it into Jenkins credentials, using 'dockerhub' as the ID. 
 
-![TokenDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/generate_token_docker_hub.png)
+  ![TokenDockerhub](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/generate_token_docker_hub.png)
 
 - Choose `Manage Jenkins` -> `System and go to Github part` -> In Github API usage rate limiting strategy -> Never check rate limit (NOT RECOMMENDED) and `Save` 
 - Finally, go to the repository in Jenkins -> `Configure and Github Credential` Select the Github Credential you created in step above then `Save` 
 - Click `Scan Repository Now` to check if all connections are correct. If they are not, restart Jenkins and try again
 
 - The result of the build on Jenkins will look like this
-![JenkinsBuild](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ui_build_jenkins.png)
+  ![JenkinsBuild](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/ui_build_jenkins.png)
 
 - As you can see, the application version will increase
-![Version](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result_push_dockerhub.png)
+  ![Version](https://github.com/HungNguyenDev1511/Car-detection-serving-model/blob/refactor/images/result_push_dockerhub.png)
 
 # References
 
