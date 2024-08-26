@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+      - mountPath: /train
+        name: training
+  volumes:
+    - name: training
+      persistentVolumeClaim:
+        claimName: mwt-volume

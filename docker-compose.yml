@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mlflow:
+    container_name: mlflow 
+    build:
+      context: ./mlflow
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow-artifacts:/mlflow
+    environment:
+      - MLFLOW_TRACKING_URI=http://0.0.0.0:5000
+      - MLFLOW_ARTIFACT_ROOT=/mlflow
+  
+  train-service:
+    container_name: train
+    build:
+      context: ./train
+      dockerfile: Dockerfile
+    volumes:
+      - ./train:/app
+    depends_on:
+      - mlflow
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      
+
+  jenkins:
+    image: fullstackdatascience/jenkins:lts
+    container_name: jenkins 
+    restart: unless-stopped
+    privileged: true
+    user: root
+    ports:
+      - 8081:8080
+      - 50000:50000
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+
+volumes:
+  mlflow-artifacts:
+  jenkins_home: 
